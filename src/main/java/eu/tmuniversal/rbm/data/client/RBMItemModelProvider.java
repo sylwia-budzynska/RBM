@@ -15,7 +15,7 @@ public class RBMItemModelProvider extends ItemModelProvider {
 
   @Override
   protected void registerModels() {
-    withExistingParent("dummy_block", modLoc("blocks/dummy_block"));
+    withExistingParent("dummy_block", modLoc("block/dummy_block"));
 
 
     ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));

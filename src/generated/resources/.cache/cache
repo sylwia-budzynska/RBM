@@ -1,3 +1,10 @@
 3507b7cbeb99a47929e8e2f13c6e83e69e6418c4 assets/rbm/blockstates/dummy_block.json
 4561f99bee53ce246506437776589e0c738202dd assets/rbm/models/block/dummy_block.json
+7ebe3239be354800b348ea9c193024c40c5c5479 assets/rbm/models/item/dummy_block.json
 8bc4b18cfc1df8c20234b382f6f09ca41bc9d367 assets/rbm/models/item/dummy_item.json
+b6f115fba71a2942b3347a4b90548d080e2a7d6f data/forge/tags/blocks/ores.json
+64ddb9f6b68b856f1a231551500f4d41a5b400da data/forge/tags/blocks/ores/dummy.json
+c7f86441ebea87092b688dec125f422ccfac8856 data/forge/tags/items/ingots.json
+e926cb1afc665961ffbb258013aa9651c918b47b data/forge/tags/items/ingots/dummy.json
+b6f115fba71a2942b3347a4b90548d080e2a7d6f data/forge/tags/items/ores.json
+64ddb9f6b68b856f1a231551500f4d41a5b400da data/forge/tags/items/ores/dummy.json

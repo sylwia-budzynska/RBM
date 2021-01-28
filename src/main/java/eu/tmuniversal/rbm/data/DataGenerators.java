@@ -20,5 +20,9 @@ public final class DataGenerators {
 
     gen.addProvider(new RBMBlockStateProvider(gen, existingFileHelper));
     gen.addProvider(new RBMItemModelProvider(gen, existingFileHelper));
+
+    RBMBlockTagsProvider blockTagsProvider = new RBMBlockTagsProvider(gen, existingFileHelper);
+    gen.addProvider(blockTagsProvider);
+    gen.addProvider(new RBMItemTagsProvider(gen, blockTagsProvider, existingFileHelper));
   }
 }
