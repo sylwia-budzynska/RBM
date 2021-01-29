@@ -1,6 +1,6 @@
-package eu.tmuniversal.rbm.setup;
+package eu.tmuniversal.rbm.common.tags;
 
-import eu.tmuniversal.rbm.Reference;
+import eu.tmuniversal.rbm.common.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
@@ -8,7 +8,7 @@ import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 
-public class RBMTags {
+public class ModTags {
   public static final class Blocks {
     public static final ITag.INamedTag<Block> ORES_DUMMY_BLOCK = forge("ores/dummy");
 

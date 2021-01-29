@@ -1,12 +1,13 @@
-package eu.tmuniversal.rbm.setup;
+package eu.tmuniversal.rbm.common.item;
 
+import eu.tmuniversal.rbm.common.setup.Registration;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 
-public class RBMItems {
+public class ModItems {
 
   public static final RegistryObject<Item> DUMMY_ITEM = Registration.ITEMS.register("dummy_item", () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
 
-  static void register() {}
+  public static void register() {}
 }

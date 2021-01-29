@@ -1,22 +1,22 @@
-package eu.tmuniversal.rbm.data.client;
+package eu.tmuniversal.rbm.common.data.client;
 
-import eu.tmuniversal.rbm.Reference;
+import eu.tmuniversal.rbm.common.Reference;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-public class RBMItemModelProvider extends ItemModelProvider {
+public class ModItemModelProvider extends ItemModelProvider {
 
-  public RBMItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+  public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
     super(generator, Reference.MOD_ID, existingFileHelper);
   }
 
   @Override
   protected void registerModels() {
     withExistingParent("dummy_block", modLoc("block/dummy_block"));
-
+    withExistingParent("trampoline", modLoc("block/trampoline"));
 
     ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
