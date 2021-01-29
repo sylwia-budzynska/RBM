@@ -31,6 +31,14 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
             .patternLine("B B")
             .addCriterion("has_item", hasItem(Blocks.BAMBOO))
             .build(consumer);
+    ShapedRecipeBuilder.shapedRecipe(ModBlocks.SOLID_AIR_BLOCK.get())
+            .key('B', Items.BUCKET)
+            .key('G', Items.GLASS)
+            .patternLine("BBB")
+            .patternLine("BGB")
+            .patternLine("BBB")
+            .addCriterion("has_item", hasItem(Blocks.GLASS))
+            .build(consumer);
   }
 
   @Override

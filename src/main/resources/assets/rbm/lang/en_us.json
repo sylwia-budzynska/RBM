@@ -1,5 +1,7 @@
 {
   "item.rbm.dummy_item": "Dummy Item",
   "block.rbm.dummy_block": "Dummy Block",
-  "block.rbm.trampoline": "Trampoline"
+  "block.rbm.trampoline": "Trampoline",
+  "block.rbm.solid_air_block": "Solid Air",
+  "block.rbm.solid_air_block.tooltip": "Solidified Air - behaves like glass while being invisible."
 }

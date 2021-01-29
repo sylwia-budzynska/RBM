@@ -1,6 +1,7 @@
 package eu.tmuniversal.rbm.common.data.client;
 
 import eu.tmuniversal.rbm.common.Reference;
+import eu.tmuniversal.rbm.common.block.BlockSolidAir;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -16,6 +17,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
   protected void registerModels() {
     withExistingParent("dummy_block", modLoc("block/dummy_block"));
     withExistingParent("trampoline", modLoc("block/trampoline"));
+    withExistingParent(BlockSolidAir.NAME, modLoc("block/" + BlockSolidAir.NAME));
 
     ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
