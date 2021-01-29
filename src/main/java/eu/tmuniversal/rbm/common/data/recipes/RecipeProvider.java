@@ -22,12 +22,12 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
   }
 
   public void registerMain(Consumer<IFinishedRecipe> consumer) {
-    ShapedRecipeBuilder.shapedRecipe(ModBlocks.TRAMPOLINE_BLOCK.get())
+    ShapedRecipeBuilder.shapedRecipe(ModBlocks.TRAMPOLINE_BLOCK.get(), 4)
             .key('B', Items.BAMBOO)
             .key('S', Items.SLIME_BLOCK)
-            .key('s', Tags.Items.STRING)
+            .key('d', Tags.Items.DYES_BLACK)
             .patternLine("BSB")
-            .patternLine("BsB")
+            .patternLine("BdB")
             .patternLine("B B")
             .addCriterion("has_item", hasItem(Blocks.BAMBOO))
             .build(consumer);

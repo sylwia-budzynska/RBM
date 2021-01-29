@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "BSB",
-    "BsB",
+    "BdB",
     "B B"
   ],
   "key": {
@@ -12,11 +12,12 @@
     "S": {
       "item": "minecraft:slime_block"
     },
-    "s": {
-      "tag": "forge:string"
+    "d": {
+      "tag": "forge:dyes/black"
     }
   },
   "result": {
-    "item": "rbm:trampoline"
+    "item": "rbm:trampoline",
+    "count": 4
   }
 }

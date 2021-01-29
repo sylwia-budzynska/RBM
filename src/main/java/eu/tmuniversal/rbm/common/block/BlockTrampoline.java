@@ -1,13 +1,18 @@
 package eu.tmuniversal.rbm.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SlimeBlock;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.FallingBlockEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -16,12 +21,27 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
-public class BlockTrampoline extends SlimeBlock {
+import java.util.Random;
+
+public class BlockTrampoline extends SlimeBlock implements IWaterLoggable {
 
   public static final double WALKING_MODIFIER = 0.85D;
   public static final SoundEvent SLIME_SOUND_EVENT = SoundEvents.BLOCK_SLIME_BLOCK_STEP;
+  public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
   private static final VoxelShape SCAFFOLDING_SHAPE;
+
+  static {
+    VoxelShape voxelshape = Block.makeCuboidShape(0.0D, 14.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+    VoxelShape voxelshape1 = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 2.0D, 16.0D, 2.0D);
+    VoxelShape voxelshape2 = Block.makeCuboidShape(14.0D, 0.0D, 0.0D, 16.0D, 16.0D, 2.0D);
+    VoxelShape voxelshape3 = Block.makeCuboidShape(0.0D, 0.0D, 14.0D, 2.0D, 16.0D, 16.0D);
+    VoxelShape voxelshape4 = Block.makeCuboidShape(14.0D, 0.0D, 14.0D, 16.0D, 16.0D, 16.0D);
+    SCAFFOLDING_SHAPE = VoxelShapes.or(voxelshape, voxelshape1, voxelshape2, voxelshape3, voxelshape4);
+  }
 
   public BlockTrampoline() {
     super(ModBlocks.makeBlockProperties(Material.CLAY, MaterialColor.GRASS)
@@ -29,7 +49,9 @@ public class BlockTrampoline extends SlimeBlock {
             .sound(SoundType.SLIME)
             .jumpFactor(1.5F / 1.25F) // divide by default jump height of 1.25 blocks
             .notSolid()
+            .variableOpacity()
     );
+    this.setDefaultState(this.getDefaultState().with(WATERLOGGED, Boolean.FALSE));
   }
 
   @Override
@@ -42,13 +64,62 @@ public class BlockTrampoline extends SlimeBlock {
         double modifier = entityIn instanceof LivingEntity ? 1.35D : 0.8D;
         entityIn.playSound(SLIME_SOUND_EVENT, ((float) Math.abs(motion.y) / 6), 1.0F);
         entityIn.setMotion(motion.x, -motion.y * modifier, motion.z);
-      }
-      else {
+      } else {
 //        hacky solution to prevent infinite bouncing on the spot
         entityIn.setMotion(entityIn.getMotion().mul(1.0, 0.0, 1.0));
       }
     }
   }
+
+  @Override
+  public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
+    double v0 = Math.abs(entityIn.getMotion().y);
+    if (v0 < 0.1D && !entityIn.isSteppingCarefully()) {
+      double v1 = 0.65D + v0 * 0.2D;
+      entityIn.setMotion(entityIn.getMotion().mul(v1, 1.0D, v1));
+    }
+
+    super.onEntityWalk(worldIn, pos, entityIn);
+  }
+
+  @Override
+  protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    builder.add(WATERLOGGED);
+  }
+
+  @Override
+  public FluidState getFluidState(BlockState state) {
+    return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+  }
+
+  @Override
+  public BlockState getStateForPlacement(BlockItemUseContext context) {
+    BlockPos blockpos = context.getPos();
+    World world = context.getWorld();
+    return this.getDefaultState().with(WATERLOGGED, world.getFluidState(blockpos).getFluid() == Fluids.WATER);
+  }
+
+  @Override
+  public void onBlockAdded(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
+    if (!worldIn.isRemote) {
+      worldIn.getPendingBlockTicks().scheduleTick(pos, this, 1);
+    }
+
+  }
+
+  @Override
+  public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+    if (stateIn.get(WATERLOGGED)) {
+      worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+    }
+
+    if (!worldIn.isRemote()) {
+      worldIn.getPendingBlockTicks().scheduleTick(currentPos, this, 1);
+    }
+
+    return stateIn;
+  }
+
 
   @Override
   public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -62,14 +133,5 @@ public class BlockTrampoline extends SlimeBlock {
   @Override
   public VoxelShape getRaytraceShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
     return VoxelShapes.fullCube();
-  }
-
-  static {
-    VoxelShape voxelshape = Block.makeCuboidShape(0.0D, 14.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-    VoxelShape voxelshape1 = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 2.0D, 16.0D, 2.0D);
-    VoxelShape voxelshape2 = Block.makeCuboidShape(14.0D, 0.0D, 0.0D, 16.0D, 16.0D, 2.0D);
-    VoxelShape voxelshape3 = Block.makeCuboidShape(0.0D, 0.0D, 14.0D, 2.0D, 16.0D, 16.0D);
-    VoxelShape voxelshape4 = Block.makeCuboidShape(14.0D, 0.0D, 14.0D, 16.0D, 16.0D, 16.0D);
-    SCAFFOLDING_SHAPE = VoxelShapes.or(voxelshape, voxelshape1, voxelshape2, voxelshape3, voxelshape4);
   }
 }
