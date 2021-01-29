@@ -1,6 +1,4 @@
 {
   "replace": false,
-  "values": [
-    "#forge:ores/dummy"
-  ]
+  "values": []
 }

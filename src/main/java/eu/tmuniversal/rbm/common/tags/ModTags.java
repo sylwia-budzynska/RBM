@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class ModTags {
   public static final class Blocks {
-    public static final ITag.INamedTag<Block> ORES_DUMMY_BLOCK = forge("ores/dummy");
+    public static final ITag.INamedTag<Block> TRAMPOLINE_BLOCK = forge("blocks/trampoline");
 
     private static ITag.INamedTag<Block> forge(String path) {
       return BlockTags.makeWrapperTag(new ResourceLocation("forge", path).toString());
