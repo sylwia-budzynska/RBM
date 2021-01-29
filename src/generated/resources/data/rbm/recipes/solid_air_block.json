@@ -2,18 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "BBB",
-    "BGB",
+    "B B",
     "BBB"
   ],
   "key": {
     "B": {
-      "item": "minecraft:bucket"
-    },
-    "G": {
-      "item": "minecraft:glass"
+      "item": "minecraft:glass_bottle"
     }
   },
   "result": {
-    "item": "rbm:solid_air_block"
+    "item": "rbm:solid_air_block",
+    "count": 8
   }
 }

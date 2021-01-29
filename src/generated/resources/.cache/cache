@@ -17,6 +17,6 @@ debc5e76f35f38b04be9fc21f76406c0836ac5f9 data/rbm/advancements/recipes/decoratio
 0cdabe60038cf9c8e6ba12daf0e2c2fbf63084fe data/rbm/loot_tables/blocks/dummy_block.json
 ad6172082b35a19e2e4517365e21c2916a5a2c45 data/rbm/loot_tables/blocks/solid_air_block.json
 26a05876b737fe76ce32d5ec553f338a4855ced3 data/rbm/loot_tables/blocks/trampoline.json
-086e14c6a7de9476c72086bbde511cedf733c14e data/rbm/recipes/solid_air_block.json
+935ae0da1f0950456c011b3f21f802a3cd33d8b1 data/rbm/recipes/solid_air_block.json
 d358b21c5f40874287934f99c7034b3fe00f13c0 data/rbm/recipes/trampoline.json
 eb1477eaea7874eba61766131e5510c878c5801d data/rbm/tags/blocks/blocks/solid_air_block.json
