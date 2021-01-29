@@ -1,8 +1,8 @@
-package eu.tmuniversal.rbm.common.data;
+package eu.tmuniversal.rbm.data;
 
-import eu.tmuniversal.rbm.common.Reference;
+import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.item.ModItems;
-import eu.tmuniversal.rbm.common.tags.ModTags;
+import eu.tmuniversal.rbm.common.lib.ModTags;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.Tags;

@@ -1,5 +1,6 @@
 package eu.tmuniversal.rbm.common;
 
+import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.setup.Registration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;

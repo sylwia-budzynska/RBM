@@ -1,9 +1,9 @@
-package eu.tmuniversal.rbm.common.data;
+package eu.tmuniversal.rbm.data;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import eu.tmuniversal.rbm.common.Reference;
+import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.advancements.criterion.EnchantmentPredicate;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.advancements.criterion.MinMaxBounds;

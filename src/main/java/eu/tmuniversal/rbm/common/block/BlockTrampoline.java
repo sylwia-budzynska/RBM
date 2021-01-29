@@ -29,6 +29,8 @@ import java.util.Random;
 
 public class BlockTrampoline extends SlimeBlock implements IWaterLoggable {
 
+  public static final String NAME = "trampoline";
+
   public static final double WALKING_MODIFIER = 0.85D;
   public static final SoundEvent SLIME_SOUND_EVENT = SoundEvents.BLOCK_SLIME_BLOCK_STEP;
   public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

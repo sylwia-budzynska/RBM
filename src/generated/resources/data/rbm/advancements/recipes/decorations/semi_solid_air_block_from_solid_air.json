@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "rbm:solid_air_block"
+      "rbm:semi_solid_air_block_from_solid_air"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "rbm:semi_solid_air_block"
+            "item": "rbm:solid_air_block"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "rbm:solid_air_block"
+        "recipe": "rbm:semi_solid_air_block_from_solid_air"
       }
     }
   },

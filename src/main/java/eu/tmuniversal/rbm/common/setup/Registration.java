@@ -1,6 +1,6 @@
 package eu.tmuniversal.rbm.common.setup;
 
-import eu.tmuniversal.rbm.common.Reference;
+import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.item.ModItems;
 import net.minecraft.block.Block;

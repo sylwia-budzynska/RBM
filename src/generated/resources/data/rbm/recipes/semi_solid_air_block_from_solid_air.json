@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "rbm:solid_air",
+  "ingredients": [
+    {
+      "item": "rbm:solid_air_block"
+    }
+  ],
+  "result": {
+    "item": "rbm:semi_solid_air_block",
+    "count": 2
+  }
+}

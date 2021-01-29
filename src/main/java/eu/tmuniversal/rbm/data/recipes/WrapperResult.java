@@ -1,4 +1,4 @@
-package eu.tmuniversal.rbm.common.data.recipes;
+package eu.tmuniversal.rbm.data.recipes;
 
 import com.google.gson.JsonObject;
 import net.minecraft.data.IFinishedRecipe;

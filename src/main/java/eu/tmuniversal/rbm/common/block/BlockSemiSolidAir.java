@@ -9,10 +9,13 @@ import net.minecraft.world.IBlockReader;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockSolidAir extends BlockSolidAirBase {
-  public static final String NAME = "solid_air_block";
+public class BlockSemiSolidAir extends BlockSolidAirBase {
 
-  public BlockSolidAir() {
+  public static final String NAME = "semi_solid_air_block";
+
+  public static final Properties PROPERTIES = BlockSolidAirBase.PROPERTIES.doesNotBlockMovement();
+
+  public BlockSemiSolidAir() {
     super(PROPERTIES);
   }
 

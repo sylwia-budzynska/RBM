@@ -20,9 +20,13 @@ public class ModBlocks {
 
   public static final RegistryObject<Block> DUMMY_BLOCK = register("dummy_block", () -> new Block(makeBlockProperties(Material.ROCK).hardnessAndResistance(3, 10).harvestLevel(5).sound(SoundType.STONE)));
 
-  public static final RegistryObject<Block> TRAMPOLINE_BLOCK = register("trampoline", BlockTrampoline::new, new Item.Properties().group(ItemGroup.DECORATIONS));
+  public static final RegistryObject<Block> TRAMPOLINE_BLOCK = register(BlockTrampoline.NAME, BlockTrampoline::new, new Item.Properties().group(ItemGroup.DECORATIONS));
 
   public static final RegistryObject<Block> SOLID_AIR_BLOCK = register(BlockSolidAir.NAME, BlockSolidAir::new, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
+
+  public static final RegistryObject<Block> SEMI_SOLID_AIR_BLOCK = register(BlockSemiSolidAir.NAME, BlockSemiSolidAir::new, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
+
+  // v Vanilla Overrides v
 
   public static final RegistryObject<Block> BAMBOO_BLOCK = overrideRegister("bamboo", BlockOverrideBamboo::new, new Item.Properties().group(ItemGroup.DECORATIONS));
 
