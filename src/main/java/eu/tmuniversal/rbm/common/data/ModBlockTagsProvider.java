@@ -1,4 +1,4 @@
-package eu.tmuniversal.rbm.common.data.common;
+package eu.tmuniversal.rbm.common.data;
 
 import eu.tmuniversal.rbm.common.Reference;
 import eu.tmuniversal.rbm.common.block.ModBlocks;

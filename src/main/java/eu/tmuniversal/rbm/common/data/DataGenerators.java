@@ -3,9 +3,6 @@ package eu.tmuniversal.rbm.common.data;
 import eu.tmuniversal.rbm.common.Reference;
 import eu.tmuniversal.rbm.common.data.client.ModBlockStateProvider;
 import eu.tmuniversal.rbm.common.data.client.ModItemModelProvider;
-import eu.tmuniversal.rbm.common.data.common.ModBlockTagsProvider;
-import eu.tmuniversal.rbm.common.data.common.ModItemTagsProvider;
-import eu.tmuniversal.rbm.common.data.common.ModLootTableProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,6 +25,6 @@ public final class DataGenerators {
     gen.addProvider(blockTagsProvider);
     gen.addProvider(new ModItemTagsProvider(gen, blockTagsProvider, existingFileHelper));
 
-//    gen.addProvider(new ModLootTableProvider(gen));
+    gen.addProvider(new BlockLootProvider(gen));
   }
 }

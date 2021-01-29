@@ -21,9 +21,9 @@ public class ModBlocks {
                   .harvestLevel(5)
                   .sound(SoundType.STONE)));
 
-  public static final RegistryObject<Block> TRAMPOLINE_BLOCK = register("trampoline", TrampolineBlock::new);
+  public static final RegistryObject<Block> TRAMPOLINE_BLOCK = register("trampoline", BlockTrampoline::new);
 
-  public static final RegistryObject<Block> BAMBOO_BLOCK = overrideRegister("bamboo", BambooBlock::new, new Item.Properties().group(ItemGroup.DECORATIONS));
+  public static final RegistryObject<Block> BAMBOO_BLOCK = overrideRegister("bamboo", BlockOverrideBamboo::new, new Item.Properties().group(ItemGroup.DECORATIONS));
 
 
   public static AbstractBlock.Properties makeBlockProperties(Material material) {

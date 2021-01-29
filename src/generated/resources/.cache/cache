@@ -10,3 +10,5 @@ c7f86441ebea87092b688dec125f422ccfac8856 data/forge/tags/items/ingots.json
 e926cb1afc665961ffbb258013aa9651c918b47b data/forge/tags/items/ingots/dummy.json
 b6f115fba71a2942b3347a4b90548d080e2a7d6f data/forge/tags/items/ores.json
 64ddb9f6b68b856f1a231551500f4d41a5b400da data/forge/tags/items/ores/dummy.json
+0cdabe60038cf9c8e6ba12daf0e2c2fbf63084fe data/rbm/loot_tables/blocks/dummy_block.json
+26a05876b737fe76ce32d5ec553f338a4855ced3 data/rbm/loot_tables/blocks/trampoline.json

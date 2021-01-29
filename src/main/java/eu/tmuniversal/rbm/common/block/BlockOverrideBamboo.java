@@ -13,11 +13,11 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-public class BambooBlock extends net.minecraft.block.BambooBlock {
+public class BlockOverrideBamboo extends net.minecraft.block.BambooBlock {
 
   public static final int MAX_BAMBOO_HEIGHT = 255;
 
-  public BambooBlock() {
+  public BlockOverrideBamboo() {
     super(AbstractBlock.Properties.from(Blocks.BAMBOO));
   }
 

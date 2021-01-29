@@ -17,13 +17,13 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 
-public class TrampolineBlock extends SlimeBlock {
+public class BlockTrampoline extends SlimeBlock {
 
   public static final double WALKING_MODIFIER = 0.85D;
   public static final SoundEvent SLIME_SOUND_EVENT = SoundEvents.BLOCK_SLIME_BLOCK_STEP;
   private static final VoxelShape SCAFFOLDING_SHAPE;
 
-  public TrampolineBlock() {
+  public BlockTrampoline() {
     super(ModBlocks.makeBlockProperties(Material.CLAY, MaterialColor.GRASS)
             .slipperiness(0.8F)
             .sound(SoundType.SLIME)
