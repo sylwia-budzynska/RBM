@@ -26,6 +26,8 @@ public class ModBlocks {
 
   public static final RegistryObject<Block> SEMI_SOLID_AIR_BLOCK = register(BlockSemiSolidAir.NAME, BlockSemiSolidAir::new, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
 
+  public static final RegistryObject<Block> VERY_SLIPPERY_ICE_BLOCK = register(BlockVerySlipperyIce.NAME, BlockVerySlipperyIce::new);
+
   // v Vanilla Overrides v
 
   public static final RegistryObject<Block> BAMBOO_BLOCK = overrideRegister("bamboo", BlockOverrideBamboo::new, new Item.Properties().group(ItemGroup.DECORATIONS));

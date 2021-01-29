@@ -3,8 +3,11 @@ package eu.tmuniversal.rbm.data.client;
 import eu.tmuniversal.rbm.common.block.BlockSemiSolidAir;
 import eu.tmuniversal.rbm.common.block.BlockSolidAir;
 import eu.tmuniversal.rbm.common.block.BlockTrampoline;
+import eu.tmuniversal.rbm.common.block.BlockVerySlipperyIce;
 import eu.tmuniversal.rbm.common.lib.Reference;
+import eu.tmuniversal.rbm.common.lib.ResourceLocationHelper;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -20,13 +23,18 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
   @Override
   protected void registerModels() {
     withExistingParent("dummy_block", modLoc("block/dummy_block"));
-    withExistingParent(BlockTrampoline.NAME, modLoc("block/" + BlockTrampoline.NAME));
-    withExistingParent(BlockSolidAir.NAME, modLoc("block/" + BlockSolidAir.NAME));
-    withExistingParent(BlockSemiSolidAir.NAME, modLoc("block/" + BlockSemiSolidAir.NAME));
+    withExistingParent(BlockTrampoline.NAME, prefixBlock(BlockTrampoline.NAME));
+    withExistingParent(BlockSolidAir.NAME, prefixBlock(BlockSolidAir.NAME));
+    withExistingParent(BlockSemiSolidAir.NAME, prefixBlock(BlockSemiSolidAir.NAME));
+    withExistingParent(BlockVerySlipperyIce.NAME, prefixBlock(BlockVerySlipperyIce.NAME));
 
     ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
     builder(itemGenerated, "dummy_item");
+  }
+
+  protected ResourceLocation prefixBlock (String name) {
+    return ResourceLocationHelper.prefix("block/" + name);
   }
 
   private ItemModelBuilder builder(ModelFile itemGenerated, String name) {

@@ -5,5 +5,7 @@
   "block.rbm.solid_air_block": "Solid Air",
   "block.rbm.solid_air_block.tooltip": "Solidified air - behaves like glass while being invisible.",
   "block.rbm.semi_solid_air_block": "Semi-Solid Air",
-  "block.rbm.semi_solid_air_block.tooltip": "Not quite solidified air - an invisible block."
+  "block.rbm.semi_solid_air_block.tooltip": "Not quite solidified air - an invisible block.",
+  "block.rbm.very_slippery_ice_block": "Very Slippery Ice",
+  "block.rbm.very_slippery_ice_block.tooltip": "Very slippery"
 }

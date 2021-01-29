@@ -31,6 +31,8 @@ public class ModTags {
 
     public static final ITag.INamedTag<Block> BLOCKS_SOLID_AIR = tag("blocks/solid_air");
 
+    public static final ITag.INamedTag<Block> BLOCKS_VERY_SLIPPERY_ICE = forgeTag("blocks/ice");
+
     private static ITag.INamedTag<Block> tag(String name) {
       return BlockTags.makeWrapperTag(prefix(name).toString());
     }
