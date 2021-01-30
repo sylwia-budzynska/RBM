@@ -22,11 +22,11 @@ public class ModBlocks {
 
   public static final RegistryObject<Block> TRAMPOLINE_BLOCK = register(BlockTrampoline.NAME, BlockTrampoline::new, new Item.Properties().group(ItemGroup.DECORATIONS));
 
-  public static final RegistryObject<Block> SOLID_AIR_BLOCK = register(BlockSolidAir.NAME, BlockSolidAir::new, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
+  public static final RegistryObject<Block> SOLID_AIR = register(BlockSolidAir.NAME, BlockSolidAir::new, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
 
-  public static final RegistryObject<Block> SEMI_SOLID_AIR_BLOCK = register(BlockSemiSolidAir.NAME, BlockSemiSolidAir::new, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
+  public static final RegistryObject<Block> SEMI_SOLID_AIR = register(BlockSemiSolidAir.NAME, BlockSemiSolidAir::new, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
 
-  public static final RegistryObject<Block> VERY_SLIPPERY_ICE_BLOCK = register(BlockVerySlipperyIce.NAME, BlockVerySlipperyIce::new);
+  public static final RegistryObject<Block> SLIPPERY_ICE = register(BlockSlipperyIce.NAME, BlockSlipperyIce::new);
 
   // v Vanilla Overrides v
 

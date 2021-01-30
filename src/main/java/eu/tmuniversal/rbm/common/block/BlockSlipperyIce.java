@@ -12,23 +12,25 @@ import net.minecraft.world.IBlockReader;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockVerySlipperyIce extends Block {
-  public static final String NAME = "very_slippery_ice_block";
+import static eu.tmuniversal.rbm.common.lib.TranslationKeyHelper.blockTooltip;
 
-  public BlockVerySlipperyIce() {
+public class BlockSlipperyIce extends Block {
+  public static final String NAME = "slippery_ice";
+
+  public BlockSlipperyIce() {
     super(ModBlocks.makeBlockProperties(Material.PACKED_ICE)
     .slipperiness(1.0F) // TODO: find good number
     .hardnessAndResistance(0.5F)
     .sound(SoundType.GLASS));
   }
 
-  public BlockVerySlipperyIce(Properties properties) {
+  public BlockSlipperyIce(Properties properties) {
     super(properties);
   }
 
   @Override
   public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     super.addInformation(stack, worldIn, tooltip, flagIn);
-    tooltip.add(new TranslationTextComponent("block.rbm.very_slippery_ice_block.tooltip"));
+    tooltip.add(blockTooltip(NAME));
   }
 }

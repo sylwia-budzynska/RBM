@@ -19,8 +19,8 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
   protected void registerStatesAndModels() {
     simpleBlock(ModBlocks.DUMMY_BLOCK.get());
     simpleBlock(ModBlocks.TRAMPOLINE_BLOCK.get(), new ModelFile.ExistingModelFile(modLoc("block/trampoline"), exFileHelper));
-    simpleBlock(ModBlocks.SOLID_AIR_BLOCK.get());
-    simpleBlock(ModBlocks.SEMI_SOLID_AIR_BLOCK.get());
-    simpleBlock(ModBlocks.VERY_SLIPPERY_ICE_BLOCK.get());
+    simpleBlock(ModBlocks.SOLID_AIR.get());
+    simpleBlock(ModBlocks.SEMI_SOLID_AIR.get());
+    simpleBlock(ModBlocks.SLIPPERY_ICE.get());
   }
 }

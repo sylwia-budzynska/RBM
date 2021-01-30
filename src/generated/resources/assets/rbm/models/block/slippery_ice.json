@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "rbm:block/very_slippery_ice_block"
+    "all": "rbm:block/slippery_ice"
   }
 }

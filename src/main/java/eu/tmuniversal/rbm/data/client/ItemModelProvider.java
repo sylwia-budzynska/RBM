@@ -3,7 +3,7 @@ package eu.tmuniversal.rbm.data.client;
 import eu.tmuniversal.rbm.common.block.BlockSemiSolidAir;
 import eu.tmuniversal.rbm.common.block.BlockSolidAir;
 import eu.tmuniversal.rbm.common.block.BlockTrampoline;
-import eu.tmuniversal.rbm.common.block.BlockVerySlipperyIce;
+import eu.tmuniversal.rbm.common.block.BlockSlipperyIce;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.lib.ResourceLocationHelper;
 import net.minecraft.data.DataGenerator;
@@ -26,7 +26,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
     withExistingParent(BlockTrampoline.NAME, prefixBlock(BlockTrampoline.NAME));
     withExistingParent(BlockSolidAir.NAME, prefixBlock(BlockSolidAir.NAME));
     withExistingParent(BlockSemiSolidAir.NAME, prefixBlock(BlockSemiSolidAir.NAME));
-    withExistingParent(BlockVerySlipperyIce.NAME, prefixBlock(BlockVerySlipperyIce.NAME));
+    withExistingParent(BlockSlipperyIce.NAME, prefixBlock(BlockSlipperyIce.NAME));
 
     ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 

@@ -16,9 +16,9 @@ public class BlockTagsProvider extends net.minecraft.data.BlockTagsProvider {
   @Override
   protected void registerTags() {
     getOrCreateBuilder(ModTags.Blocks.TRAMPOLINE).add(ModBlocks.TRAMPOLINE_BLOCK.get());
-    getOrCreateBuilder(ModTags.Blocks.BLOCKS_SOLID_AIR).add(ModBlocks.SOLID_AIR_BLOCK.get());
-    getOrCreateBuilder(ModTags.Blocks.BLOCKS_SOLID_AIR).add(ModBlocks.SEMI_SOLID_AIR_BLOCK.get());
-    getOrCreateBuilder(Tags.Blocks.GLASS).add(ModBlocks.SOLID_AIR_BLOCK.get());
-    getOrCreateBuilder(Tags.Blocks.GLASS).add(ModBlocks.SEMI_SOLID_AIR_BLOCK.get());
+    getOrCreateBuilder(ModTags.Blocks.BLOCKS_SOLID_AIR).add(ModBlocks.SOLID_AIR.get());
+    getOrCreateBuilder(ModTags.Blocks.BLOCKS_SOLID_AIR).add(ModBlocks.SEMI_SOLID_AIR.get());
+    getOrCreateBuilder(Tags.Blocks.GLASS).add(ModBlocks.SOLID_AIR.get());
+    getOrCreateBuilder(Tags.Blocks.GLASS).add(ModBlocks.SEMI_SOLID_AIR.get());
   }
 }

@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "rbm:semi_solid_air_block"
+          "name": "rbm:slippery_ice"
         }
       ],
       "conditions": [

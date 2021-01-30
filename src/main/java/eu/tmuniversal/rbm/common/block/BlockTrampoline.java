@@ -1,14 +1,17 @@
 package eu.tmuniversal.rbm.common.block;
 
+import eu.tmuniversal.rbm.common.lib.TranslationKeyHelper;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -20,12 +23,18 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Random;
+
+import static eu.tmuniversal.rbm.common.lib.TranslationKeyHelper.blockTooltip;
 
 public class BlockTrampoline extends SlimeBlock implements IWaterLoggable {
 
@@ -54,6 +63,12 @@ public class BlockTrampoline extends SlimeBlock implements IWaterLoggable {
             .variableOpacity()
     );
     this.setDefaultState(this.getDefaultState().with(WATERLOGGED, Boolean.FALSE));
+  }
+
+  @Override
+  public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    super.addInformation(stack, worldIn, tooltip, flagIn);
+    tooltip.add(blockTooltip(NAME));
   }
 
   @Override

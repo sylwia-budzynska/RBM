@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "rbm:semi_solid_air_block_from_solid_air"
+      "rbm:semi_solid_air"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "rbm:solid_air_block"
+            "item": "minecraft:glass"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "rbm:semi_solid_air_block_from_solid_air"
+        "recipe": "rbm:semi_solid_air"
       }
     }
   },

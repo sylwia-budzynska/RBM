@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "rbm:solid_air_block",
-    "rbm:semi_solid_air_block"
+    "rbm:solid_air",
+    "rbm:semi_solid_air"
   ]
 }

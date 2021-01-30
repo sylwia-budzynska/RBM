@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "rbm:block/solid_air_block"
+    "all": "rbm:block/semi_solid_air"
   }
 }
