@@ -15,7 +15,7 @@ import net.minecraftforge.fml.RegistryObject;
 import java.util.function.Consumer;
 
 import static eu.tmuniversal.rbm.common.lib.ResourceLocationHelper.prefix;
-import static eu.tmuniversal.rbm.common.lib.ResourceLocationHelper.prefixS;
+import static eu.tmuniversal.rbm.common.lib.ResourceLocationHelper.prefixId;
 
 public class RecipeProvider extends net.minecraft.data.RecipeProvider {
   public RecipeProvider(DataGenerator generatorIn) {
@@ -29,7 +29,7 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
   }
 
   public void registerMain(Consumer<IFinishedRecipe> consumer) {
-    ShapedRecipeBuilder.shapedRecipe(ModBlocks.TRAMPOLINE_BLOCK.get(), 4)
+    ShapedRecipeBuilder.shapedRecipe(ModBlocks.TRAMPOLINE.get(), 4)
             .key('B', Items.BAMBOO)
             .key('S', Items.SLIME_BLOCK)
             .key('d', Tags.Items.DYES_BLACK)
@@ -44,17 +44,17 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
             .patternLine("B B")
             .patternLine("BBB")
             .addCriterion("has_item", hasItem(Blocks.GLASS))
-            .setGroup(prefixS("solid_air"))
-            .build(consumer, recipeLocation(ModBlocks.SEMI_SOLID_AIR));
+            .setGroup(prefixId("solid_air"))
+            .build(consumer);
     ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.SOLID_AIR.get())
             .addIngredient(ModBlocks.SEMI_SOLID_AIR.get(), 2)
             .addCriterion("has_item", hasItem(ModBlocks.SEMI_SOLID_AIR.get()))
-            .setGroup(prefixS("solid_air"))
+            .setGroup(prefixId("solid_air"))
             .build(consumer);
     ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.SEMI_SOLID_AIR.get(), 2)
             .addIngredient(ModBlocks.SOLID_AIR.get())
             .addCriterion("has_item", hasItem(ModBlocks.SOLID_AIR.get()))
-            .setGroup(prefixS("solid_air"))
+            .setGroup(prefixId("solid_air"))
             .build(consumer, recipeLocation(ModBlocks.SEMI_SOLID_AIR, "_from_solid_air"));
     ShapedRecipeBuilder.shapedRecipe(ModBlocks.SLIPPERY_ICE.get(), 4)
             .key('I', Items.ICE)
@@ -63,19 +63,15 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
             .patternLine("IPI")
             .patternLine(" I ")
             .addCriterion("has_item", hasItem(Blocks.ICE))
-            .build(consumer, recipeLocation(ModBlocks.SLIPPERY_ICE));
+            .build(consumer);
   }
 
   public static ResourceLocation recipeLocation (RegistryObject<Block> block, String name) {
     return prefix(block.getId().getPath() + name);
   }
 
-  public static ResourceLocation recipeLocation (RegistryObject<Block> block) {
-    return prefix(block.getId().getPath());
-  }
-
   @Override
   public String getName() {
-    return "RBM crafting recipes";
+    return "RBM Crafting Recipes";
   }
 }

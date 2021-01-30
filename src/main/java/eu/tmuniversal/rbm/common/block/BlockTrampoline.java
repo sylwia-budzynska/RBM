@@ -1,13 +1,12 @@
 package eu.tmuniversal.rbm.common.block;
 
-import eu.tmuniversal.rbm.common.lib.TranslationKeyHelper;
+import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
@@ -24,21 +23,16 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
 
 import static eu.tmuniversal.rbm.common.lib.TranslationKeyHelper.blockTooltip;
 
 public class BlockTrampoline extends SlimeBlock implements IWaterLoggable {
-
-  public static final String NAME = "trampoline";
 
   public static final double WALKING_MODIFIER = 0.85D;
   public static final SoundEvent SLIME_SOUND_EVENT = SoundEvents.BLOCK_SLIME_BLOCK_STEP;
@@ -68,7 +62,7 @@ public class BlockTrampoline extends SlimeBlock implements IWaterLoggable {
   @Override
   public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     super.addInformation(stack, worldIn, tooltip, flagIn);
-    tooltip.add(blockTooltip(NAME));
+    tooltip.add(blockTooltip(LibBlockNames.TRAMPOLINE));
   }
 
   @Override

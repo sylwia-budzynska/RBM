@@ -2,7 +2,6 @@ package eu.tmuniversal.rbm.data;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.advancements.criterion.EnchantmentPredicate;
 import net.minecraft.advancements.criterion.ItemPredicate;
@@ -21,7 +20,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 
 import javax.annotation.Nonnull;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;

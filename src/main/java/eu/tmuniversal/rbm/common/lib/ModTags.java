@@ -1,8 +1,5 @@
 package eu.tmuniversal.rbm.common.lib;
 
-import eu.tmuniversal.rbm.common.block.BlockSemiSolidAir;
-import eu.tmuniversal.rbm.common.block.BlockSolidAir;
-import eu.tmuniversal.rbm.common.block.BlockTrampoline;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
@@ -27,11 +24,11 @@ public class ModTags {
   }
 
   public static final class Blocks {
-    public static final ITag.INamedTag<Block> TRAMPOLINE = forgeTag("blocks/" + BlockTrampoline.NAME);
+    public static final ITag.INamedTag<Block> TRAMPOLINE = forgeTag(LibBlockNames.TRAMPOLINE);
 
-    public static final ITag.INamedTag<Block> BLOCKS_SOLID_AIR = tag("blocks/solid_air");
+    public static final ITag.INamedTag<Block> BLOCKS_SOLID_AIR = tag(LibBlockNames.SOLID_AIR);
 
-    public static final ITag.INamedTag<Block> BLOCKS_VERY_SLIPPERY_ICE = forgeTag("blocks/ice");
+    public static final ITag.INamedTag<Block> BLOCKS_VERY_SLIPPERY_ICE = forgeTag("ice");
 
     private static ITag.INamedTag<Block> tag(String name) {
       return BlockTags.makeWrapperTag(prefix(name).toString());

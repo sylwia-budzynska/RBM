@@ -1,7 +1,0 @@
-{
-  "variants": {
-    "": {
-      "model": "rbm:block/semi_solid_air"
-    }
-  }
-}

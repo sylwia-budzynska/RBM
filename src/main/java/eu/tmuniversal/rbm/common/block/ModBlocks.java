@@ -1,9 +1,10 @@
 package eu.tmuniversal.rbm.common.block;
 
+import eu.tmuniversal.rbm.common.item.ModItems;
+import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.setup.Registration;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -18,15 +19,13 @@ public class ModBlocks {
 
   //#region  Block Registration
 
-  public static final RegistryObject<Block> DUMMY_BLOCK = register("dummy_block", () -> new Block(makeBlockProperties(Material.ROCK).hardnessAndResistance(3, 10).harvestLevel(5).sound(SoundType.STONE)));
+  public static final RegistryObject<Block> TRAMPOLINE = register(LibBlockNames.TRAMPOLINE, BlockTrampoline::new);
 
-  public static final RegistryObject<Block> TRAMPOLINE_BLOCK = register(BlockTrampoline.NAME, BlockTrampoline::new, new Item.Properties().group(ItemGroup.DECORATIONS));
+  public static final RegistryObject<Block> SOLID_AIR = register(LibBlockNames.SOLID_AIR, BlockSolidAir::new, ModItems.defaultBuilder().rarity(Rarity.UNCOMMON));
 
-  public static final RegistryObject<Block> SOLID_AIR = register(BlockSolidAir.NAME, BlockSolidAir::new, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
+  public static final RegistryObject<Block> SEMI_SOLID_AIR = register(LibBlockNames.SEMI_SOLID_AIR, BlockSemiSolidAir::new, ModItems.defaultBuilder().rarity(Rarity.UNCOMMON));
 
-  public static final RegistryObject<Block> SEMI_SOLID_AIR = register(BlockSemiSolidAir.NAME, BlockSemiSolidAir::new, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.UNCOMMON));
-
-  public static final RegistryObject<Block> SLIPPERY_ICE = register(BlockSlipperyIce.NAME, BlockSlipperyIce::new);
+  public static final RegistryObject<Block> SLIPPERY_ICE = register(LibBlockNames.TRAMPOLINE, BlockSlipperyIce::new);
 
   // v Vanilla Overrides v
 
@@ -50,7 +49,7 @@ public class ModBlocks {
   }
 
   private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier) {
-    return register(name, blockSupplier, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+    return register(name, blockSupplier, ModItems.defaultBuilder().group(ItemGroup.BUILDING_BLOCKS));
   }
 
   private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, Item.Properties properties) {

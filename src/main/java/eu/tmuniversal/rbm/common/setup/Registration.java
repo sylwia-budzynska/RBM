@@ -1,8 +1,8 @@
 package eu.tmuniversal.rbm.common.setup;
 
-import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.item.ModItems;
+import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;

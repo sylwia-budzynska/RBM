@@ -1,8 +1,8 @@
 package eu.tmuniversal.rbm.data;
 
-import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.item.ModItems;
 import eu.tmuniversal.rbm.common.lib.ModTags;
+import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.Tags;
@@ -22,5 +22,10 @@ public class ItemTagsProvider extends net.minecraft.data.ItemTagsProvider {
 //    items
     getOrCreateBuilder(ModTags.Items.INGOTS_DUMMY).add(ModItems.DUMMY_ITEM.get());
     getOrCreateBuilder(Tags.Items.INGOTS).addTag(ModTags.Items.INGOTS_DUMMY);
+  }
+
+  @Override
+  public String getName() {
+    return "RBM Item Tags";
   }
 }
