@@ -25,7 +25,7 @@ public class ModBlocks {
 
   public static final RegistryObject<Block> SEMI_SOLID_AIR = register(LibBlockNames.SEMI_SOLID_AIR, BlockSemiSolidAir::new, ModItems.defaultBuilder().rarity(Rarity.UNCOMMON));
 
-  public static final RegistryObject<Block> SLIPPERY_ICE = register(LibBlockNames.TRAMPOLINE, BlockSlipperyIce::new);
+  public static final RegistryObject<Block> SLIPPERY_ICE = register(LibBlockNames.SLIPPERY_ICE, BlockSlipperyIce::new);
 
   // v Vanilla Overrides v
 
