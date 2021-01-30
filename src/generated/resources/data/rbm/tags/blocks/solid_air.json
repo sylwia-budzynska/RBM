@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "rbm:solid_air",
+    "rbm:semi_solid_air"
+  ]
+}

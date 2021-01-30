@@ -9,7 +9,7 @@ import net.minecraftforge.fml.RegistryObject;
 
 public class ModItems {
 
-  public static final RegistryObject<Item> DUMMY_ITEM = Registration.ITEMS.register(LibItemNames.DUMMY_ITEM, () -> new Item(defaultBuilder().group(ItemGroup.MISC)));
+  public static final RegistryObject<Item> DUMMY_ITEM = Registration.ITEMS.register(LibItemNames.DUMMY_ITEM, () -> new Item(defaultBuilder()));
 
   public static Item.Properties defaultBuilder() {
     return new Item.Properties().group(RBMCreativeTab.INSTANCE);

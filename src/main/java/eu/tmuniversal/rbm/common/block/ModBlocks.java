@@ -49,7 +49,7 @@ public class ModBlocks {
   }
 
   private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier) {
-    return register(name, blockSupplier, ModItems.defaultBuilder().group(ItemGroup.BUILDING_BLOCKS));
+    return register(name, blockSupplier, ModItems.defaultBuilder());
   }
 
   private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, Item.Properties properties) {
