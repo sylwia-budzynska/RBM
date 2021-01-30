@@ -58,9 +58,9 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
             .build(consumer, recipeLocation(ModBlocks.SEMI_SOLID_AIR, "_from_solid_air"));
     ShapedRecipeBuilder.shapedRecipe(ModBlocks.SLIPPERY_ICE.get(), 4)
             .key('I', Items.ICE)
-            .key('P', Items.BLUE_ICE)
+            .key('B', Items.BLUE_ICE)
             .patternLine(" I ")
-            .patternLine("IPI")
+            .patternLine("IBI")
             .patternLine(" I ")
             .addCriterion("has_item", hasItem(Blocks.ICE))
             .build(consumer);
