@@ -1,9 +1,6 @@
 package eu.tmuniversal.rbm.data.recipes;
 
-import eu.tmuniversal.rbm.common.block.BlockSemiSolidAir;
 import eu.tmuniversal.rbm.common.block.ModBlocks;
-import eu.tmuniversal.rbm.common.lib.ModTags;
-import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
@@ -41,24 +38,32 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
             .patternLine("B B")
             .addCriterion("has_item", hasItem(Blocks.BAMBOO))
             .build(consumer);
-    ShapedRecipeBuilder.shapedRecipe(ModBlocks.SEMI_SOLID_AIR_BLOCK.get(), 8)
+    ShapedRecipeBuilder.shapedRecipe(ModBlocks.SEMI_SOLID_AIR.get(), 8)
             .key('B', Items.GLASS_BOTTLE)
             .patternLine("BBB")
             .patternLine("B B")
             .patternLine("BBB")
             .addCriterion("has_item", hasItem(Blocks.GLASS))
             .setGroup(prefixS("solid_air"))
-            .build(consumer, recipeLocation(ModBlocks.SEMI_SOLID_AIR_BLOCK));
-    ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.SOLID_AIR_BLOCK.get())
-            .addIngredient(ModBlocks.SEMI_SOLID_AIR_BLOCK.get(), 2)
-            .addCriterion("has_item", hasItem(ModBlocks.SEMI_SOLID_AIR_BLOCK.get()))
+            .build(consumer, recipeLocation(ModBlocks.SEMI_SOLID_AIR));
+    ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.SOLID_AIR.get())
+            .addIngredient(ModBlocks.SEMI_SOLID_AIR.get(), 2)
+            .addCriterion("has_item", hasItem(ModBlocks.SEMI_SOLID_AIR.get()))
             .setGroup(prefixS("solid_air"))
             .build(consumer);
-    ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.SEMI_SOLID_AIR_BLOCK.get(), 2)
-            .addIngredient(ModBlocks.SOLID_AIR_BLOCK.get())
-            .addCriterion("has_item", hasItem(ModBlocks.SOLID_AIR_BLOCK.get()))
+    ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.SEMI_SOLID_AIR.get(), 2)
+            .addIngredient(ModBlocks.SOLID_AIR.get())
+            .addCriterion("has_item", hasItem(ModBlocks.SOLID_AIR.get()))
             .setGroup(prefixS("solid_air"))
-            .build(consumer, recipeLocation(ModBlocks.SEMI_SOLID_AIR_BLOCK, "_from_solid_air"));
+            .build(consumer, recipeLocation(ModBlocks.SEMI_SOLID_AIR, "_from_solid_air"));
+    ShapedRecipeBuilder.shapedRecipe(ModBlocks.SLIPPERY_ICE.get(), 4)
+            .key('I', Items.ICE)
+            .key('P', Items.BLUE_ICE)
+            .patternLine(" I ")
+            .patternLine("IPI")
+            .patternLine(" I ")
+            .addCriterion("has_item", hasItem(Blocks.ICE))
+            .build(consumer, recipeLocation(ModBlocks.SLIPPERY_ICE));
   }
 
   public static ResourceLocation recipeLocation (RegistryObject<Block> block, String name) {
