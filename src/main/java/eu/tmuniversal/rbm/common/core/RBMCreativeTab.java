@@ -20,9 +20,4 @@ public class RBMCreativeTab extends ItemGroup {
   public ItemStack createIcon() {
     return new ItemStack(ModBlocks.TRAMPOLINE.get());
   }
-
-  @Override
-  public boolean hasSearchBar() {
-    return true;
-  }
 }
