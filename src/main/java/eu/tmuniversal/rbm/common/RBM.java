@@ -1,13 +1,17 @@
 package eu.tmuniversal.rbm.common;
 
+import eu.tmuniversal.rbm.client.proxy.ClientProxy;
+import eu.tmuniversal.rbm.common.core.IProxy;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.setup.Registration;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -20,7 +24,11 @@ public class RBM {
   // Directly reference a log4j logger.
   private static final Logger LOGGER = LogManager.getLogger();
 
+  public static IProxy proxy = new IProxy() { };
+
   public RBM() {
+    DistExecutor.callWhenOn(Dist.CLIENT, () -> () -> proxy = new ClientProxy());
+    proxy.registerHandlers();
     Registration.register();
 
     // Register ourselves for server and other game events we are interested in
