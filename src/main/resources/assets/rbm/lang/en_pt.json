@@ -1,0 +1,12 @@
+{
+  "itemGroup.rbm": "Funky Hogwash Mod",
+  "item.rbm.dummy_item": "Dummy Item",
+  "block.rbm.trampoline": "Bouncy buoy",
+  "block.rbm.trampoline.tooltip": "\u00A77What a bouncer!",
+  "block.rbm.solid_air": "Stiffened Wind",
+  "block.rbm.solid_air.tooltip": "\u00A77Like a porthole, yet hidden to the eye!",
+  "block.rbm.semi_solid_air": "Sturdy Breeze",
+  "block.rbm.semi_solid_air.tooltip": "\u00A77Divide th' seas!",
+  "block.rbm.slippery_ice": "Slippy Frost",
+  "block.rbm.slippery_ice.tooltip": "\u00A77More slippr'y than Blue Frost!"
+}

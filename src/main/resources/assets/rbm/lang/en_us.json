@@ -1,7 +1,6 @@
 {
   "itemGroup.rbm": "Random Bulls**t Mod",
   "item.rbm.dummy_item": "Dummy Item",
-  "block.rbm.dummy_block": "Dummy Block",
   "block.rbm.trampoline": "Trampoline",
   "block.rbm.trampoline.tooltip": "\u00A77So bouncy!",
   "block.rbm.solid_air": "Solid Air",
@@ -9,5 +8,5 @@
   "block.rbm.semi_solid_air": "Semi-Solid Air",
   "block.rbm.semi_solid_air.tooltip": "\u00A77Not quite solidified air - an invisible block.",
   "block.rbm.slippery_ice": "Slippery Ice",
-  "block.rbm.slippery_ice.tooltip": "\u00A77Show to be slightly more slippery than placebo"
+  "block.rbm.slippery_ice.tooltip": "\u00A77Shown to be slightly more slippery than placebo"
 }
