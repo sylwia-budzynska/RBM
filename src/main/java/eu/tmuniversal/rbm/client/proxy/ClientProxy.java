@@ -1,6 +1,6 @@
 package eu.tmuniversal.rbm.client.proxy;
 
-import eu.tmuniversal.rbm.client.render.entity.RenderSnowGiant;
+import eu.tmuniversal.rbm.client.render.entity.RendererSnowGiant;
 import eu.tmuniversal.rbm.common.core.IProxy;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,6 +23,6 @@ public class ClientProxy implements IProxy {
   }
 
   private static void registerEntityRenderers() {
-    RenderingRegistry.registerEntityRenderingHandler(ModEntities.SNOW_GIANT, RenderSnowGiant::new);
+    RenderingRegistry.registerEntityRenderingHandler(ModEntities.SNOW_GIANT, (manager) -> new RendererSnowGiant(manager, ModEntities.SNOW_GIANT_SCALE));
   }
 }

@@ -2,6 +2,7 @@ package eu.tmuniversal.rbm.common;
 
 import eu.tmuniversal.rbm.client.proxy.ClientProxy;
 import eu.tmuniversal.rbm.common.core.IProxy;
+import eu.tmuniversal.rbm.common.entity.EntitySnowGiant;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.setup.Registration;
@@ -40,11 +41,7 @@ public class RBM {
 
   public void commonSetup(FMLCommonSetupEvent event) {
     event.enqueueWork(() -> {
-      GlobalEntityTypeAttributes.put(ModEntities.SNOW_GIANT, MobEntity.func_233666_p_()
-              .createMutableAttribute(Attributes.MOVEMENT_SPEED, 1.2)
-              .createMutableAttribute(Attributes.MAX_HEALTH, 69.0D)
-              .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 1.0F)
-              .create());
+      GlobalEntityTypeAttributes.put(ModEntities.SNOW_GIANT, EntitySnowGiant.setAttributes());
     });
   }
 

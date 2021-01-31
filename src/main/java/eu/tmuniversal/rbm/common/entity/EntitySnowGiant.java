@@ -4,7 +4,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.Pose;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -16,6 +19,14 @@ public class EntitySnowGiant extends SnowGolemEntity {
     super(type, worldIn);
   }
 
+  public static AttributeModifierMap setAttributes() {
+    return MobEntity.func_233666_p_()
+            .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2F / ModEntities.SNOW_GIANT_SCALE)
+            .createMutableAttribute(Attributes.MAX_HEALTH, 69.0D)
+            .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.9F)
+            .create();
+  }
+
   @Override
   public boolean isWaterSensitive() {
     return false;
@@ -23,7 +34,7 @@ public class EntitySnowGiant extends SnowGolemEntity {
 
   @Override
   protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
-    return 11.8F;
+    return (1.9F - 0.2F) * ModEntities.SNOW_GIANT_SCALE;
   }
 
   @Override

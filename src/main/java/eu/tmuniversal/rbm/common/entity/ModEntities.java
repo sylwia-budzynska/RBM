@@ -10,8 +10,9 @@ import java.util.function.Supplier;
 
 public class ModEntities {
 
+  public static final float SNOW_GIANT_SCALE = 5.5F;
   public static final EntityType<EntitySnowGiant> SNOW_GIANT = EntityType.Builder.create(EntitySnowGiant::new, EntityClassification.MISC)
-          .size(4.4F, 12F)
+          .size(0.7F * SNOW_GIANT_SCALE, 1.9F * SNOW_GIANT_SCALE)
           .setTrackingRange(16)
           .build("");
   public static final RegistryObject<EntityType<EntitySnowGiant>> SNOW_GIANT_REGISTRY_OBJECT = register(LibEntityNames.SNOW_GIANT, () -> SNOW_GIANT);

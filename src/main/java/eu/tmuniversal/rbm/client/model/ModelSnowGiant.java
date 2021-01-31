@@ -16,24 +16,33 @@ public class ModelSnowGiant extends SegmentedModel<EntitySnowGiant> {
   private final ModelRenderer rightHand;
   private final ModelRenderer leftHand;
 
-  public ModelSnowGiant() {
-    super();
-    float f = 4.0F;
-    float f1 = 0.0F;
+  private final float scalar;
+
+  public ModelSnowGiant(float scale) {
+    this.scalar = -scale;
+    float arm_offset = -1.0F;
+
+    float height_offset = 2.0F;
+
+    float bottom_body_y = -12.0F + 0.5F;
+    float body_y = bottom_body_y + height_offset;
+    float arm_y = 0.0F;
+    float head_y = body_y + height_offset;
+
     this.head = (new ModelRenderer(this, 0, 0)).setTextureSize(64, 64);
-    this.head.addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, -0.5F);
+    this.head.addBox(-4.0F, head_y, -4.0F, 8.0F, 8.0F, 8.0F, -0.5F);
     this.head.setRotationPoint(0.0F, 4.0F, 0.0F);
     this.rightHand = (new ModelRenderer(this, 32, 0)).setTextureSize(64, 64);
-    this.rightHand.addBox(-1.0F, 0.0F, -1.0F, 12.0F, 2.0F, 2.0F, -0.5F);
+    this.rightHand.addBox(arm_offset, arm_y, -1.0F, 12.0F, 2.0F, 2.0F, -0.5F);
     this.rightHand.setRotationPoint(0.0F, 6.0F, 0.0F);
     this.leftHand = (new ModelRenderer(this, 32, 0)).setTextureSize(64, 64);
-    this.leftHand.addBox(-1.0F, 0.0F, -1.0F, 12.0F, 2.0F, 2.0F, -0.5F);
+    this.leftHand.addBox(arm_offset, arm_y, -1.0F, 12.0F, 2.0F, 2.0F, -0.5F);
     this.leftHand.setRotationPoint(0.0F, 6.0F, 0.0F);
     this.body = (new ModelRenderer(this, 0, 16)).setTextureSize(64, 64);
-    this.body.addBox(-5.0F, -10.0F, -5.0F, 10.0F, 10.0F, 10.0F, -0.5F);
+    this.body.addBox(-5.0F, body_y, -5.0F, 10.0F, 10.0F, 10.0F, -0.5F);
     this.body.setRotationPoint(0.0F, 13.0F, 0.0F);
     this.bottomBody = (new ModelRenderer(this, 0, 36)).setTextureSize(64, 64);
-    this.bottomBody.addBox(-6.0F, -12.0F, -6.0F, 12.0F, 12.0F, 12.0F, -0.5F);
+    this.bottomBody.addBox(-6.0F, bottom_body_y, -6.0F, 12.0F, 12.0F, 12.0F, -0.5F);
     this.bottomBody.setRotationPoint(0.0F, 24.0F, 0.0F);
   }
 
