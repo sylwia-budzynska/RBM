@@ -22,7 +22,7 @@ public class EntitySnowGiant extends SnowGolemEntity {
     return MobEntity.func_233666_p_()
             .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2F / (ModEntities.SNOW_GIANT_SCALE / 3))
             .createMutableAttribute(Attributes.MAX_HEALTH, 69.0D)
-            .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.999F)
+            .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.95F)
             .createMutableAttribute(Attributes.ATTACK_SPEED, 7.0F)
             .create();
   }

@@ -1,8 +1,10 @@
 package eu.tmuniversal.rbm.data.client;
 
 import eu.tmuniversal.rbm.common.block.ModBlocks;
+import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -19,12 +21,20 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
 
   @Override
   protected void registerStatesAndModels() {
-    simpleBlock(ModBlocks.TRAMPOLINE.get(), new ModelFile.ExistingModelFile(modLoc("block/trampoline"), exFileHelper));
+    simpleBlock(ModBlocks.TRAMPOLINE.get(), model(LibBlockNames.TRAMPOLINE));
     simpleBlock(ModBlocks.SOLID_AIR.get());
     simpleBlock(ModBlocks.SEMI_SOLID_AIR.get());
     simpleBlock(ModBlocks.SLIPPERY_ICE.get());
     simpleBlock(ModBlocks.LAUNCHPAD.get());
-    simpleBlock(ModBlocks.COMPRESSED_CARVED_PUMPKIN.get());
+    horizontalBlock(ModBlocks.COMPRESSED_CARVED_PUMPKIN.get(), model(LibBlockNames.COMPRESSED_CARVED_PUMPKIN));
+  }
+
+  private ModelFile model(String name) {
+    return model(name, modLoc("block/" + name));
+  }
+
+  private ModelFile model(String name, ResourceLocation location) {
+    return new ModelFile.ExistingModelFile(location, this.exFileHelper);
   }
 
   @Nonnull

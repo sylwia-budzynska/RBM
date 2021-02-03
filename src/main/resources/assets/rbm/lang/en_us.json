@@ -10,6 +10,7 @@
   "block.rbm.slippery_ice": "Slippery Ice",
   "block.rbm.slippery_ice.tooltip": "\u00A77Shown to be slightly more slippery than placebo",
   "block.rbm.compressed_carved_pumpkin": "Compressed Carved Pumpkin",
+  "block.rbm.launchpad": "Launchpad",
   "entity.rbm.snow_giant": "Snow Giant",
   "entity.rbm.big_snowball": "Big Snowball"
 }

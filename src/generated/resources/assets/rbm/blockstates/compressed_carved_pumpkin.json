@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "rbm:block/compressed_carved_pumpkin"
+    },
+    "facing=south": {
+      "model": "rbm:block/compressed_carved_pumpkin",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "rbm:block/compressed_carved_pumpkin",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "rbm:block/compressed_carved_pumpkin",
+      "y": 90
+    }
+  }
+}
