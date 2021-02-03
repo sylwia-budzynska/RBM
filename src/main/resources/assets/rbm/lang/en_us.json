@@ -8,5 +8,8 @@
   "block.rbm.semi_solid_air": "Semi-Solid Air",
   "block.rbm.semi_solid_air.tooltip": "\u00A77Not quite solidified air - an invisible block.",
   "block.rbm.slippery_ice": "Slippery Ice",
-  "block.rbm.slippery_ice.tooltip": "\u00A77Shown to be slightly more slippery than placebo"
+  "block.rbm.slippery_ice.tooltip": "\u00A77Shown to be slightly more slippery than placebo",
+  "block.rbm.compressed_carved_pumpkin": "Compressed Carved Pumpkin",
+  "entity.rbm.snow_giant": "Snow Giant",
+  "entity.rbm.big_snowball": "Big Snowball"
 }

@@ -27,6 +27,10 @@ public class ModBlocks {
 
   public static final RegistryObject<Block> SLIPPERY_ICE = register(LibBlockNames.SLIPPERY_ICE, BlockSlipperyIce::new);
 
+  public static final RegistryObject<Block> LAUNCHPAD = register(LibBlockNames.LAUNCHPAD, BlockLaunchpad::new);
+
+  public static final RegistryObject<Block> COMPRESSED_CARVED_PUMPKIN = register(LibBlockNames.COMPRESSED_CARVED_PUMPKIN, BlockCompressedCarvedPumpkin::new, ModItems.defaultBuilder().rarity(Rarity.RARE));
+
   // v Vanilla Overrides v
 
   public static final RegistryObject<Block> BAMBOO_BLOCK = overrideRegister("bamboo", BlockOverrideBamboo::new, new Item.Properties().group(ItemGroup.DECORATIONS));

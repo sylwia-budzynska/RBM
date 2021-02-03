@@ -8,5 +8,7 @@
   "block.rbm.semi_solid_air": "Sturdy Breeze",
   "block.rbm.semi_solid_air.tooltip": "\u00A77Divide th' seas!",
   "block.rbm.slippery_ice": "Slippy Frost",
-  "block.rbm.slippery_ice.tooltip": "\u00A77More slippr'y than Blue Frost!"
+  "block.rbm.slippery_ice.tooltip": "\u00A77More slippr'y than Blue Frost!",
+  "entity.rbm.snow_giant": "Frost Giant",
+  "entity.rbm.big_snowball": "Big Ball o' Frost"
 }

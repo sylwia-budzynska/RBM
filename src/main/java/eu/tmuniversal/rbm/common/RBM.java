@@ -9,9 +9,12 @@ import eu.tmuniversal.rbm.common.setup.Registration;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -43,6 +46,14 @@ public class RBM {
     event.enqueueWork(() -> {
       GlobalEntityTypeAttributes.put(ModEntities.SNOW_GIANT, EntitySnowGiant.setAttributes());
     });
+  }
+
+//  Do not allow Snow Giants to receive fire damage
+  @SubscribeEvent
+  public void onBurnDamage(LivingAttackEvent event) {
+    if (event.getEntity() instanceof EntitySnowGiant) {
+      if (event.getSource().equals(DamageSource.ON_FIRE) || event.getSource().equals(DamageSource.IN_FIRE)) event.setCanceled(true);
+    }
   }
 
 /*

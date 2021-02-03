@@ -23,6 +23,8 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
     simpleBlock(ModBlocks.SOLID_AIR.get());
     simpleBlock(ModBlocks.SEMI_SOLID_AIR.get());
     simpleBlock(ModBlocks.SLIPPERY_ICE.get());
+    simpleBlock(ModBlocks.LAUNCHPAD.get());
+    simpleBlock(ModBlocks.COMPRESSED_CARVED_PUMPKIN.get());
   }
 
   @Nonnull

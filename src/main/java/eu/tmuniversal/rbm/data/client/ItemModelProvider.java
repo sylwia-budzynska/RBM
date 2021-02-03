@@ -19,17 +19,23 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
 
   @Override
   protected void registerModels() {
-    withExistingParent(LibBlockNames.TRAMPOLINE, prefixBlock(LibBlockNames.TRAMPOLINE));
-    withExistingParent(LibBlockNames.SOLID_AIR, prefixBlock(LibBlockNames.SOLID_AIR));
-    withExistingParent(LibBlockNames.SEMI_SOLID_AIR, prefixBlock(LibBlockNames.SEMI_SOLID_AIR));
-    withExistingParent(LibBlockNames.SLIPPERY_ICE, prefixBlock(LibBlockNames.SLIPPERY_ICE));
+    register(LibBlockNames.TRAMPOLINE);
+    register(LibBlockNames.SOLID_AIR);
+    register(LibBlockNames.SEMI_SOLID_AIR);
+    register(LibBlockNames.SLIPPERY_ICE);
+    register(LibBlockNames.LAUNCHPAD);
+    register(LibBlockNames.COMPRESSED_CARVED_PUMPKIN);
 
     ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
     builder(itemGenerated, "dummy_item");
   }
 
-  protected ResourceLocation prefixBlock(String name) {
+  protected ItemModelBuilder  register(String name) {
+    return withExistingParent(name, prefixBlock(name));
+  }
+
+  protected static ResourceLocation prefixBlock(String name) {
     return ResourceLocationHelper.prefix("block/" + name);
   }
 

@@ -2,13 +2,12 @@ package eu.tmuniversal.rbm.common.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntitySize;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.Pose;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.passive.SnowGolemEntity;
+import net.minecraft.entity.projectile.SnowballEntity;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -21,9 +20,10 @@ public class EntitySnowGiant extends SnowGolemEntity {
 
   public static AttributeModifierMap setAttributes() {
     return MobEntity.func_233666_p_()
-            .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2F / ModEntities.SNOW_GIANT_SCALE)
+            .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2F / (ModEntities.SNOW_GIANT_SCALE / 3))
             .createMutableAttribute(Attributes.MAX_HEALTH, 69.0D)
-            .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.9F)
+            .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.999F)
+            .createMutableAttribute(Attributes.ATTACK_SPEED, 7.0F)
             .create();
   }
 
@@ -40,6 +40,24 @@ public class EntitySnowGiant extends SnowGolemEntity {
   @Override
   public boolean isShearable() {
     return false;
+  }
+
+  @Override
+  protected int calculateFallDamage(float distance, float damageMultiplier) {
+    return super.calculateFallDamage(distance, damageMultiplier) / Math.round(ModEntities.SNOW_GIANT_SCALE);
+  }
+
+  @Override
+  public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
+    EntityBigSnowball snowballentity = new EntityBigSnowball(this.world, this);
+    double d0 = target.getPosYEye() - (double) 1.1F;
+    double d1 = target.getPosX() - this.getPosX();
+    double d2 = d0 - snowballentity.getPosY();
+    double d3 = target.getPosZ() - this.getPosZ();
+    float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
+    snowballentity.shoot(d1, d2 + (double) f, d3, 1.6F, 12.0F / (ModEntities.SNOW_GIANT_SCALE * 1.9F));
+    this.playSound(SoundEvents.ENTITY_SNOW_GOLEM_SHOOT, 1.0F, 0.4F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+    this.world.addEntity(snowballentity);
   }
 
   @Override
@@ -62,6 +80,5 @@ public class EntitySnowGiant extends SnowGolemEntity {
         }
       }
     }
-
   }
 }
