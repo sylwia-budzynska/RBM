@@ -8,26 +8,33 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
+
+plugins {
+    id "com.diffplug.spotless" version "5.7.0"
+}
+
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply plugin: 'pmd'
 
+ext.configFile = file('build.properties')
+ext.config = parseConfig(configFile)
 
+def mc_version = "1.16.4"
 
-def modId='rbm'
-def author='TMUniversal'
-version='0.0.11'
-def mcVersion='1.16.4'
-def mappingsVersion='20201028-1.16.3'
-def forgeVersion='35.1.36'
-def jeiVersion='1.16.4:7.6.1.65'
-def hwylaVersion='1.10.11-B78_1.16.2'
+version = "${mc_version}-${config.build_number}"
+if (System.getenv().RELEASE_MODE == null) {
+    version += '-SNAPSHOT'
+}
 
 group = 'eu.tmuniversal.rbm' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = modId + '-' + mcVersion
+archivesBaseName = config.mod_id + '-' + mc_version
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+compileJava.options.compilerArgs << "-Xlint:all,-classfile,-processing,-deprecation" << "-Werror"
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
@@ -36,7 +43,7 @@ minecraft {
     // stable_#            Stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'snapshot', version: mappingsVersion
+    mappings channel: 'snapshot', version: config.mappingsVersion
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -119,33 +126,35 @@ repositories {
 }
 
 dependencies {
-    // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
-    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:' + mcVersion + '-' + forgeVersion
+    minecraft 'net.minecraftforge:forge:' + mc_version + '-' + config.forgeVersion
 
-    // You may put jars on which you depend on in ./libs or you may define them like so..
-    // compile "some.group:artifact:version:classifier"
-    // compile "some.group:artifact:version"
     compile fileTree(dir: 'libs', include: '*.jar')
 
-    compile fg.deobf('mezz.jei:jei-' + jeiVersion)
-    compile fg.deobf('mcp.mobius.waila:Hwyla:' + hwylaVersion)
+    compileOnly fg.deobf('mezz.jei:jei-' + config.jeiVersion + ':api')
+    runtimeOnly fg.deobf('mezz.jei:jei-' + config.jeiVersion)
 
-    // Real examples
-    // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    // compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+    compile fg.deobf('mcp.mobius.waila:Hwyla:' + config.hwylaVersion)
+}
 
-    // The 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    // provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+spotless {
+    enforceCheck = false // workaround around jenkins having wrong line endings in some files
+    // we explicitly check in github actions builds
+    java {
+        indentWithSpaces()
+        licenseHeaderFile('spotless/license_template.txt')
+        removeUnusedImports()
+    }
+}
 
-    // These dependencies get remapped to your current MCP mappings
-    // deobf 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+pmd {
+    toolVersion '6.22.0'
+    incrementalAnalysis.set(true)
+    ruleSets.clear()
+    ruleSetFiles = files("spotless/pmd-ruleset.xml")
+}
 
-    // For more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+task checkSyntax (group: "verification") {
+    dependsOn spotlessJavaCheck, pmdMain
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
@@ -153,13 +162,64 @@ jar {
     manifest {
         attributes([
             "Specification-Title": project.name,
-            "Specification-Vendor": author,
+            "Specification-Vendor": config.author,
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" : author,
+            "Implementation-Vendor" : config.author,
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
+    }
+
+    exclude "**/*.bat"
+    exclude "**/*.psd"
+    exclude "**/*.exe"
+}
+
+processResources {
+    // Exclude datagenerator .cache directory
+    exclude '.cache'
+
+    filesMatching('data/botania/patchouli_books/lexicon/book.json') {
+        filter {
+            it.replaceAll("buildNumber", config.build_number)
+        }
+    }
+}
+
+task srcJar(type: Jar) {
+    from(sourceSets.main.java)
+    classifier = 'sources'
+}
+
+artifacts {
+    archives srcJar
+}
+
+/**
+ * Increments the buildnumber in your config file, and saves it
+ * Note: The doFirst is important, without it the build number
+ * will be incremented every time tasks are configured, i.e every
+ * time gradle is run on this project.
+ */
+task incrementBuildNumber {
+    doFirst {
+        config.build_number = (config.build_number.toString().toInteger()) + 1
+        configFile.withWriter {
+            config.toProperties().store(it, "")
+        }
+    }
+}
+
+def parseConfig(File config) {
+    if(config.exists()){
+        config.withReader {
+            def prop = new Properties()
+            prop.load(it)
+            return (new ConfigSlurper().parse(prop))
+        }
+    } else {
+        return null
     }
 }
 
@@ -170,14 +230,36 @@ jar.finalizedBy('reobfJar')
 //publish.dependsOn('reobfJar')
 
 publishing {
+    tasks.publish.dependsOn build
     publications {
         mavenJava(MavenPublication) {
-            artifact jar
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
+            from components.java
+            artifact srcJar
+            pom.withXml {
+                def node = asNode()
+                if(node.dependencies.size() > 0)
+                    node.remove(node.dependencies) // Remove deps, as they are all mappings-dependent and/or forge
+            }
         }
     }
+
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            url "file://" + System.getenv("local_maven")
         }
     }
 }
+
+// Prevent Mixin annotation processor from getting into IDEA's annotation processor settings
+if (System.getProperty("idea.sync.active") == "true") {
+    afterEvaluate {
+        tasks.withType(JavaCompile).all {
+            it.options.annotationProcessorPath = files()
+        }
+    }
+}
+
+defaultTasks 'clean', 'checkSyntax', 'build'

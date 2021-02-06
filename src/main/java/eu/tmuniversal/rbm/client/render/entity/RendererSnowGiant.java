@@ -1,3 +1,11 @@
+/*
+ * This class is distributed as part of the RBM Mod.
+ * Get the Source Code in github:
+ * https://github.com/TMUniversal/RBM
+ *
+ * RBM is Open Source and distributed under the
+ * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 package eu.tmuniversal.rbm.client.render.entity;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -25,6 +33,7 @@ public class RendererSnowGiant extends MobRenderer<EntitySnowGiant, ModelSnowGia
     this.addLayer(new LayerSnowGiantHead(this, 1.0F));
   }
 
+  @Override
   protected void preRenderCallback(EntitySnowGiant entitiylivingbaseIn, MatrixStack matrixStackIn, float partialTickTime) {
     matrixStackIn.scale(this.scale, this.scale, this.scale);
   }

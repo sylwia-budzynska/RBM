@@ -1,3 +1,11 @@
+/*
+ * This class is distributed as part of the RBM Mod.
+ * Get the Source Code in github:
+ * https://github.com/TMUniversal/RBM
+ *
+ * RBM is Open Source and distributed under the
+ * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 package eu.tmuniversal.rbm.common;
 
 import eu.tmuniversal.rbm.client.proxy.ClientProxy;
@@ -8,8 +16,6 @@ import eu.tmuniversal.rbm.common.entity.ModEntities;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.setup.Registration;
 import net.minecraft.block.Block;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,7 +36,8 @@ public class RBM {
   // Directly reference a log4j logger.
   private static final Logger LOGGER = LogManager.getLogger();
 
-  public static IProxy proxy = new IProxy() { };
+  public static IProxy proxy = new IProxy() {
+  };
 
   public RBM() {
     DistExecutor.callWhenOn(Dist.CLIENT, () -> () -> proxy = new ClientProxy());
@@ -51,11 +58,13 @@ public class RBM {
     });
   }
 
-//  Do not allow Snow Giants to receive fire damage
+  //  Do not allow Snow Giants to receive fire damage
   @SubscribeEvent
   public void onBurnDamage(LivingAttackEvent event) {
     if (event.getEntity() instanceof EntitySnowGiant) {
-      if (event.getSource().equals(DamageSource.ON_FIRE) || event.getSource().equals(DamageSource.IN_FIRE)) event.setCanceled(true);
+      if (event.getSource().equals(DamageSource.ON_FIRE) || event.getSource().equals(DamageSource.IN_FIRE)) {
+        event.setCanceled(true);
+      }
     }
   }
 

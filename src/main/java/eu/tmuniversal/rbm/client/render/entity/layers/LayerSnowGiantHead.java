@@ -1,9 +1,16 @@
+/*
+ * This class is distributed as part of the RBM Mod.
+ * Get the Source Code in github:
+ * https://github.com/TMUniversal/RBM
+ *
+ * RBM is Open Source and distributed under the
+ * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 package eu.tmuniversal.rbm.client.render.entity.layers;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import eu.tmuniversal.rbm.client.model.ModelSnowGiant;
 import eu.tmuniversal.rbm.common.entity.EntitySnowGiant;
-import eu.tmuniversal.rbm.common.entity.ModEntities;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -24,7 +31,7 @@ public class LayerSnowGiantHead extends LayerRenderer<EntitySnowGiant, ModelSnow
 
   public LayerSnowGiantHead(IEntityRenderer<EntitySnowGiant, ModelSnowGiant> entityRendererIn, float scale) {
     super(entityRendererIn);
-    this.scale = scale;
+    LayerSnowGiantHead.scale = scale;
   }
 
   @Override

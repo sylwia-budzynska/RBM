@@ -1,3 +1,11 @@
+/*
+ * This class is distributed as part of the RBM Mod.
+ * Get the Source Code in github:
+ * https://github.com/TMUniversal/RBM
+ *
+ * RBM is Open Source and distributed under the
+ * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 package eu.tmuniversal.rbm.common.block;
 
 import eu.tmuniversal.rbm.common.entity.EntitySnowGiant;
@@ -31,6 +39,7 @@ public class BlockCompressedCarvedPumpkin extends HorizontalBlock {
     this.setDefaultState(this.getStateContainer().getBaseState().with(FACING, Direction.NORTH));
   }
 
+  @Override
   public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving) {
     if (!oldState.isIn(state.getBlock())) {
       this.trySpawnGiant(world, pos);
@@ -96,12 +105,13 @@ public class BlockCompressedCarvedPumpkin extends HorizontalBlock {
     return this.snowGiantPattern;
   }
 
+  @Override
   public BlockState getStateForPlacement(BlockItemUseContext context) {
     return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
   }
 
+  @Override
   protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
     builder.add(FACING);
   }
-
 }

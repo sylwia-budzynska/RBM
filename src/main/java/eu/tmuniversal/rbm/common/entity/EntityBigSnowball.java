@@ -1,3 +1,11 @@
+/*
+ * This class is distributed as part of the RBM Mod.
+ * Get the Source Code in github:
+ * https://github.com/TMUniversal/RBM
+ *
+ * RBM is Open Source and distributed under the
+ * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 package eu.tmuniversal.rbm.common.entity;
 
 import net.minecraft.entity.Entity;
@@ -45,6 +53,7 @@ public class EntityBigSnowball extends ProjectileItemEntity {
     return itemstack.isEmpty() ? ParticleTypes.ITEM_SNOWBALL : new ItemParticleData(ParticleTypes.ITEM, itemstack);
   }
 
+  @Override
   @OnlyIn(Dist.CLIENT)
   public void handleStatusUpdate(byte id) {
     if (id == 3) {
@@ -56,6 +65,7 @@ public class EntityBigSnowball extends ProjectileItemEntity {
     }
   }
 
+  @Override
   protected void onImpact(RayTraceResult result) {
     super.onImpact(result);
     if (!this.world.isRemote) {
