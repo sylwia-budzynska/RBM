@@ -20,16 +20,16 @@ public class ModEntities {
 
   public static final float SNOW_GIANT_SCALE = 5.5F;
   public static final EntityType<EntitySnowGiant> SNOW_GIANT = EntityType.Builder.<EntitySnowGiant>create(EntitySnowGiant::new, EntityClassification.MISC)
-          .size(0.7F * SNOW_GIANT_SCALE, 1.9F * SNOW_GIANT_SCALE)
-          .setTrackingRange(Math.round(8 * (SNOW_GIANT_SCALE / 1.9F)))
-          .build("");
+    .size(0.7F * SNOW_GIANT_SCALE, 1.9F * SNOW_GIANT_SCALE)
+    .setTrackingRange(Math.round(8 * (SNOW_GIANT_SCALE / 1.9F)))
+    .build("");
   public static final RegistryObject<EntityType<EntitySnowGiant>> SNOW_GIANT_REGISTRY_OBJECT = register(LibEntityNames.SNOW_GIANT, () -> SNOW_GIANT);
 
   public static final EntityType<EntityBigSnowball> BIG_SNOWBALL = EntityType.Builder.<EntityBigSnowball>create(EntityBigSnowball::new, EntityClassification.MISC)
-          .size(0.25F * SNOW_GIANT_SCALE, 0.25F * SNOW_GIANT_SCALE)
-          .setTrackingRange(4)
-          .func_233608_b_(10)
-          .build("");
+    .size(0.25F * SNOW_GIANT_SCALE, 0.25F * SNOW_GIANT_SCALE)
+    .setTrackingRange(4)
+    .func_233608_b_(10)
+    .build("");
   public static final RegistryObject<EntityType<EntityBigSnowball>> BIG_SNOWBALL_REGISTRY_OBJECT = register(LibEntityNames.BIG_SNOWBALL, () -> BIG_SNOWBALL);
 
   public static void register() {

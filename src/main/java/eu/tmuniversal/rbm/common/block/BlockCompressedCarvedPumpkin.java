@@ -33,8 +33,8 @@ public class BlockCompressedCarvedPumpkin extends HorizontalBlock {
 
   public BlockCompressedCarvedPumpkin() {
     super(ModBlock.getDefaultProperties(Material.GOURD, MaterialColor.ADOBE)
-            .sound(SoundType.WOOD)
-            .hardnessAndResistance(3.0f)
+      .sound(SoundType.WOOD)
+      .hardnessAndResistance(3.0f)
     );
     this.setDefaultState(this.getStateContainer().getBaseState().with(FACING, Direction.NORTH));
   }
@@ -77,13 +77,13 @@ public class BlockCompressedCarvedPumpkin extends HorizontalBlock {
   private BlockPattern getSnowGiantBasePattern() {
     if (this.snowGiantBasePattern == null) {
       this.snowGiantBasePattern = BlockPatternBuilder.start()
-              .aisle("~~~PPP~~~", "~~~P~P~~~", "~~~PPP~~~", "~~#####~~", "~~##S##~~", "WW#####WW", "~~##S##~~", "~~#####~~", "~#######~", "~###S###~", "~#######~", "~###S###~", "~#######~", "~#######~")
-              .where('P', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.PUMPKIN)))
-              .where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SNOW_BLOCK)))
-              .where('S', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SMOOTH_STONE)))
-              .where('W', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.OAK_LOG)))
-              .where('~', CachedBlockInfo.hasState(BlockMaterialMatcher.forMaterial(Material.AIR)))
-              .build();
+        .aisle("~~~PPP~~~", "~~~P~P~~~", "~~~PPP~~~", "~~#####~~", "~~##S##~~", "WW#####WW", "~~##S##~~", "~~#####~~", "~#######~", "~###S###~", "~#######~", "~###S###~", "~#######~", "~#######~")
+        .where('P', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.PUMPKIN)))
+        .where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SNOW_BLOCK)))
+        .where('S', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SMOOTH_STONE)))
+        .where('W', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.OAK_LOG)))
+        .where('~', CachedBlockInfo.hasState(BlockMaterialMatcher.forMaterial(Material.AIR)))
+        .build();
     }
 
     return this.snowGiantBasePattern;
@@ -92,14 +92,14 @@ public class BlockCompressedCarvedPumpkin extends HorizontalBlock {
   private BlockPattern getSnowGiantPattern() {
     if (this.snowGiantPattern == null) {
       this.snowGiantPattern = BlockPatternBuilder.start()
-              .aisle("~~~PPP~~~", "~~~PCP~~~", "~~~PPP~~~", "~~#####~~", "~~##S##~~", "WW#####WW", "~~##S##~~", "~~#####~~", "~#######~", "~###S###~", "~#######~", "~###S###~", "~#######~", "~#######~")
-              .where('P', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.PUMPKIN)))
-              .where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SNOW_BLOCK)))
-              .where('S', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SMOOTH_STONE)))
-              .where('W', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.OAK_LOG)))
-              .where('C', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(ModBlocks.COMPRESSED_CARVED_PUMPKIN.get())))
-              .where('~', CachedBlockInfo.hasState(BlockMaterialMatcher.forMaterial(Material.AIR)))
-              .build();
+        .aisle("~~~PPP~~~", "~~~PCP~~~", "~~~PPP~~~", "~~#####~~", "~~##S##~~", "WW#####WW", "~~##S##~~", "~~#####~~", "~#######~", "~###S###~", "~#######~", "~###S###~", "~#######~", "~#######~")
+        .where('P', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.PUMPKIN)))
+        .where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SNOW_BLOCK)))
+        .where('S', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SMOOTH_STONE)))
+        .where('W', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.OAK_LOG)))
+        .where('C', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(ModBlocks.COMPRESSED_CARVED_PUMPKIN.get())))
+        .where('~', CachedBlockInfo.hasState(BlockMaterialMatcher.forMaterial(Material.AIR)))
+        .build();
     }
 
     return this.snowGiantPattern;

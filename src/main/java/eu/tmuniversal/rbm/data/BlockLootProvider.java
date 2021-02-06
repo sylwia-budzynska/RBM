@@ -37,7 +37,7 @@ import java.util.function.Function;
 public class BlockLootProvider implements IDataProvider {
   private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
   private static final ILootCondition.IBuilder SILK_TOUCH = MatchTool.builder(ItemPredicate.Builder.create()
-          .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1))));
+    .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1))));
 
   private final DataGenerator generator;
   private final Map<Block, Function<Block, LootTable.Builder>> functionTable = new HashMap<>();
@@ -71,15 +71,15 @@ public class BlockLootProvider implements IDataProvider {
       func = func.replaceOperation(tag, "BlockEntityTag." + tag);
     }
     LootPool.Builder pool = LootPool.builder().name("main").rolls(ConstantRange.of(1)).addEntry(entry)
-            .acceptCondition(SurvivesExplosion.builder())
-            .acceptFunction(func);
+      .acceptCondition(SurvivesExplosion.builder())
+      .acceptFunction(func);
     return LootTable.builder().addLootPool(pool);
   }
 
   private static LootTable.Builder genRegular(Block b) {
     LootEntry.Builder<?> entry = ItemLootEntry.builder(b);
     LootPool.Builder pool = LootPool.builder().name("main").rolls(ConstantRange.of(1)).addEntry(entry)
-            .acceptCondition(SurvivesExplosion.builder());
+      .acceptCondition(SurvivesExplosion.builder());
     return LootTable.builder().addLootPool(pool);
   }
 

@@ -58,11 +58,11 @@ public class BlockTrampoline extends SlimeBlock implements IWaterLoggable {
 
   public BlockTrampoline() {
     super(ModBlock.getDefaultProperties(Material.CLAY, MaterialColor.GRASS)
-            .slipperiness(0.8F)
-            .sound(SoundType.SLIME)
-            .jumpFactor(1.5F / 1.25F) // divide by default jump height of 1.25 blocks
-            .notSolid()
-            .variableOpacity()
+      .slipperiness(0.8F)
+      .sound(SoundType.SLIME)
+      .jumpFactor(1.5F / 1.25F) // divide by default jump height of 1.25 blocks
+      .notSolid()
+      .variableOpacity()
     );
     this.setDefaultState(this.getDefaultState().with(WATERLOGGED, Boolean.FALSE));
   }
