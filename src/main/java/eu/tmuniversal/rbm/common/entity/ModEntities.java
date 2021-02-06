@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 public class ModEntities {
 
   public static final float SNOW_GIANT_SCALE = 5.5F;
-  public static final EntityType<EntitySnowGiant> SNOW_GIANT = EntityType.Builder.<EntitySnowGiant>create(EntitySnowGiant::new, EntityClassification.MISC)
+  public static final EntityType<EntitySnowGiant> SNOW_GIANT = EntityType.Builder.create(EntitySnowGiant::new, EntityClassification.MISC)
     .size(0.7F * SNOW_GIANT_SCALE, 1.9F * SNOW_GIANT_SCALE)
     .setTrackingRange(Math.round(8 * (SNOW_GIANT_SCALE / 1.9F)))
     .build("");

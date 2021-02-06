@@ -78,7 +78,6 @@ public class BlockOverrideBamboo extends net.minecraft.block.BambooBlock impleme
   protected int getNumBambooBlocksAbove(IBlockReader worldIn, BlockPos pos) {
     int i;
     for (i = 0; i < MAX_BAMBOO_HEIGHT && worldIn.getBlockState(pos.up(i + 1)).getBlock() == Blocks.BAMBOO; ++i) {
-      ;
     }
     return i;
   }
@@ -87,7 +86,6 @@ public class BlockOverrideBamboo extends net.minecraft.block.BambooBlock impleme
   protected int getNumBambooBlocksBelow(IBlockReader worldIn, BlockPos pos) {
     int i;
     for (i = 0; i < MAX_BAMBOO_HEIGHT && worldIn.getBlockState(pos.down(i + 1)).getBlock() == Blocks.BAMBOO; ++i) {
-      ;
     }
     return i;
   }

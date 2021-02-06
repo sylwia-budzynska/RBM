@@ -18,6 +18,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.IBlockReader;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 import static eu.tmuniversal.rbm.common.lib.TranslationKeyHelper.blockTooltip;
@@ -36,6 +37,7 @@ public class BlockSlipperyIce extends Block {
   }
 
   @Override
+  @ParametersAreNonnullByDefault
   public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     super.addInformation(stack, worldIn, tooltip, flagIn);
     tooltip.add(blockTooltip(LibBlockNames.SLIPPERY_ICE));

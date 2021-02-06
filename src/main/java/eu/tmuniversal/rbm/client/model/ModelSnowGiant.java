@@ -24,10 +24,8 @@ public class ModelSnowGiant extends SegmentedModel<EntitySnowGiant> {
   private final ModelRenderer rightHand;
   private final ModelRenderer leftHand;
 
-  private final float scalar;
-
   public ModelSnowGiant(float scale) {
-    this.scalar = -scale;
+    float scalar = -scale;
     float arm_offset = -1.0F;
 
     float height_offset = 2.0F;
