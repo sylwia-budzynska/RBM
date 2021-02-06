@@ -1,11 +1,13 @@
 package eu.tmuniversal.rbm.common;
 
 import eu.tmuniversal.rbm.client.proxy.ClientProxy;
+import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.core.IProxy;
 import eu.tmuniversal.rbm.common.entity.EntitySnowGiant;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.setup.Registration;
+import net.minecraft.block.Block;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -40,6 +42,7 @@ public class RBM {
 
     IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
     modBus.addListener(this::commonSetup);
+    modBus.addGenericListener(Block.class, ModBlocks::blockOverrides);
   }
 
   public void commonSetup(FMLCommonSetupEvent event) {

@@ -3,22 +3,29 @@
 package eu.tmuniversal.rbm.common.block;
 
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BambooLeaves;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import shadows.placebo.util.IReplacementBlock;
 
+import java.util.Objects;
 import java.util.Random;
 
-public class BlockOverrideBamboo extends net.minecraft.block.BambooBlock {
+public class BlockOverrideBamboo extends net.minecraft.block.BambooBlock implements IReplacementBlock {
 
-  public static final int MAX_BAMBOO_HEIGHT = 255;
+  public static final int MAX_BAMBOO_HEIGHT = 254;
+  protected StateContainer<Block, BlockState> container;
 
   public BlockOverrideBamboo() {
     super(AbstractBlock.Properties.from(Blocks.BAMBOO));
+
+    setRegistryName(Objects.requireNonNull(Blocks.BAMBOO.getRegistryName()));
   }
 
   @Override
@@ -65,6 +72,7 @@ public class BlockOverrideBamboo extends net.minecraft.block.BambooBlock {
   protected int getNumBambooBlocksAbove(IBlockReader worldIn, BlockPos pos) {
     int i;
     for (i = 0; i < MAX_BAMBOO_HEIGHT && worldIn.getBlockState(pos.up(i + 1)).getBlock() == Blocks.BAMBOO; ++i) {
+      ;
     }
     return i;
   }
@@ -73,6 +81,7 @@ public class BlockOverrideBamboo extends net.minecraft.block.BambooBlock {
   protected int getNumBambooBlocksBelow(IBlockReader worldIn, BlockPos pos) {
     int i;
     for (i = 0; i < MAX_BAMBOO_HEIGHT && worldIn.getBlockState(pos.down(i + 1)).getBlock() == Blocks.BAMBOO; ++i) {
+      ;
     }
     return i;
   }
@@ -102,20 +111,18 @@ public class BlockOverrideBamboo extends net.minecraft.block.BambooBlock {
     worldIn.setBlockState(posIn.up(), this.getDefaultState().with(PROPERTY_AGE, Integer.valueOf(i)).with(PROPERTY_BAMBOO_LEAVES, bambooleaves).with(PROPERTY_STAGE, Integer.valueOf(j)), 3);
   }
 
-//  @Override
-//  public void _setDefaultState(BlockState state) {
-//    this.setDefaultState(state);
-//  }
+  @Override
+  public void _setDefaultState(BlockState state) {
+    this.setDefaultState(state);
+  }
 
-//  protected StateContainer<Block, BlockState> container;
+  @Override
+  public StateContainer<Block, BlockState> getStateContainer() {
+    return container == null ? super.getStateContainer() : container;
+  }
 
-//  @Override
-//  public void setStateContainer(StateContainer<Block, BlockState> container) {
-//    this.container = container;
-//  }
-
-//  @Override
-//  public StateContainer<Block, BlockState> getStateContainer() {
-//    return container == null ? super.getStateContainer() : container;
-//  }
+  @Override
+  public void setStateContainer(StateContainer<Block, BlockState> container) {
+    this.container = container;
+  }
 }

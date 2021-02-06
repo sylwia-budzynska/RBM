@@ -10,7 +10,7 @@ public class BlockLaunchpad extends Block {
   }
 
   public BlockLaunchpad() {
-    this(ModBlocks.makeBlockProperties(Material.SPONGE)
+    this(ModBlock.getDefaultProperties(Material.SPONGE)
             .sound(SoundType.ANCIENT_DEBRIS)
             .hardnessAndResistance(0.3F, 1.0F)
             .jumpFactor(4.5F)

@@ -24,7 +24,7 @@ public class BlockCompressedCarvedPumpkin extends HorizontalBlock {
   private BlockPattern snowGiantPattern;
 
   public BlockCompressedCarvedPumpkin() {
-    super(ModBlocks.makeBlockProperties(Material.GOURD, MaterialColor.ADOBE)
+    super(ModBlock.getDefaultProperties(Material.GOURD, MaterialColor.ADOBE)
             .sound(SoundType.WOOD)
             .hardnessAndResistance(3.0f)
     );

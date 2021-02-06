@@ -2,16 +2,15 @@ package eu.tmuniversal.rbm.common.block;
 
 import eu.tmuniversal.rbm.common.item.ModItems;
 import eu.tmuniversal.rbm.common.lib.LibBlockNames;
+import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.setup.Registration;
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Rarity;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.RegistryObject;
+import shadows.placebo.util.PlaceboUtil;
 
 import java.util.function.Supplier;
 
@@ -31,19 +30,12 @@ public class ModBlocks {
 
   public static final RegistryObject<Block> COMPRESSED_CARVED_PUMPKIN = register(LibBlockNames.COMPRESSED_CARVED_PUMPKIN, BlockCompressedCarvedPumpkin::new, ModItems.defaultBuilder().rarity(Rarity.RARE));
 
-  // v Vanilla Overrides v
 
-  public static final RegistryObject<Block> BAMBOO_BLOCK = overrideRegister("bamboo", BlockOverrideBamboo::new, new Item.Properties().group(ItemGroup.DECORATIONS));
+  public static void blockOverrides(RegistryEvent.Register<Block> event) {
+    PlaceboUtil.registerOverride(new BlockOverrideBamboo(), Reference.MOD_ID);
+  }
 
   //#endregion  End block registration
-
-  public static AbstractBlock.Properties makeBlockProperties(Material material) {
-    return AbstractBlock.Properties.create(material);
-  }
-
-  public static AbstractBlock.Properties makeBlockProperties(Material material, MaterialColor materialColor) {
-    return AbstractBlock.Properties.create(material, materialColor);
-  }
 
   public static void register() {
   }
@@ -59,22 +51,6 @@ public class ModBlocks {
   private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, Item.Properties properties) {
     RegistryObject<T> returnValue = registerNoItem(name, blockSupplier);
     Registration.ITEMS.register(name, () -> new BlockItem(returnValue.get(), properties));
-    return returnValue;
-  }
-
-//  Overrides
-
-  private static <T extends Block> RegistryObject<T> overrideRegisterNoItem(String name, Supplier<T> blockSupplier) {
-    return Registration.OVERRIDE_BLOCKS.register(name, blockSupplier);
-  }
-
-  private static <T extends Block> RegistryObject<T> overrideRegister(String name, Supplier<T> blockSupplier) {
-    return overrideRegister(name, blockSupplier, new Item.Properties());
-  }
-
-  private static <T extends Block> RegistryObject<T> overrideRegister(String name, Supplier<T> blockSupplier, Item.Properties itemProperties) {
-    RegistryObject<T> returnValue = overrideRegisterNoItem(name, blockSupplier);
-    Registration.OVERRIDE_ITEMS.register(name, () -> new BlockItem(returnValue.get(), itemProperties));
     return returnValue;
   }
 }

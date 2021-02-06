@@ -25,7 +25,7 @@ displayName="Random Bulls**t Mod" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 #updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="https://tmuniversal.eu/" #optional
+displayURL="https://github.com/TMUniversal/RBM" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="rbm.png" #optional
 # A text field displayed in the mod UI
@@ -56,5 +56,17 @@ We were bored...
     mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
     versionRange="[1.16.4,1.17)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.rbm]]
+    modId="placebo"
+    mandatory=true
+    versionRange="[4.4.1,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.rbm]]
+    modId="jei"
+    mandatory=false
+    versionRange="[7.6.0,)"
     ordering="NONE"
     side="BOTH"

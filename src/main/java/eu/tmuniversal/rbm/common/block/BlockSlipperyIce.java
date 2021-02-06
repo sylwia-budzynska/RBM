@@ -17,7 +17,7 @@ import static eu.tmuniversal.rbm.common.lib.TranslationKeyHelper.blockTooltip;
 public class BlockSlipperyIce extends Block {
 
   public BlockSlipperyIce() {
-    super(ModBlocks.makeBlockProperties(Material.PACKED_ICE)
+    super(ModBlock.getDefaultProperties(Material.PACKED_ICE)
     .slipperiness(1.0F) // TODO: find good number
     .hardnessAndResistance(0.5F)
     .sound(SoundType.GLASS));
