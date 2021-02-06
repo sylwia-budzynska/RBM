@@ -25,7 +25,6 @@ dc49d88c7beefaeb7889cf7f98a522dd07a07ea7 data/rbm/advancements/recipes/rbm/semi_
 6232bf97cdca6f7198eb6cb29fd111d4fced579c data/rbm/advancements/recipes/rbm/slippery_ice.json
 20747b4ff3be9bebfc38f5617c7d717d64aedffc data/rbm/advancements/recipes/rbm/solid_air.json
 debc5e76f35f38b04be9fc21f76406c0836ac5f9 data/rbm/advancements/recipes/rbm/trampoline.json
-d8a418a1bbc16b2b86c1d4aa75a858965cb26dd5 data/rbm/loot_tables/blocks/bamboo.json
 a03981c85195bb73936fd4e9c8b3009327081646 data/rbm/loot_tables/blocks/compressed_carved_pumpkin.json
 70e3772546c4833e749988092a0f09485399392f data/rbm/loot_tables/blocks/launchpad.json
 75ff7b5ed3d654ca88900323278318f9d823513e data/rbm/loot_tables/blocks/semi_solid_air.json

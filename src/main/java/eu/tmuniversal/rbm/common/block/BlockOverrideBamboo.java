@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class BlockOverrideBamboo extends net.minecraft.block.BambooBlock implements IReplacementBlock {
 
-  public static final int MAX_BAMBOO_HEIGHT = 254;
+  public static final int MAX_BAMBOO_HEIGHT = 255;
   protected StateContainer<Block, BlockState> container;
 
   public BlockOverrideBamboo() {
