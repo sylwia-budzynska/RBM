@@ -30,6 +30,9 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
     super(generatorIn);
   }
 
+  public static ResourceLocation recipeLocation(RegistryObject<Block> block, String name) {
+    return prefix(block.getId().getPath() + name);
+  }
 
   @Override
   public void registerRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -72,10 +75,6 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
             .patternLine(" I ")
             .addCriterion("has_item", hasItem(Blocks.ICE))
             .build(consumer);
-  }
-
-  public static ResourceLocation recipeLocation (RegistryObject<Block> block, String name) {
-    return prefix(block.getId().getPath() + name);
   }
 
   @Override

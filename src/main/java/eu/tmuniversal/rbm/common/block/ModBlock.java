@@ -15,6 +15,10 @@ import net.minecraft.block.material.MaterialColor;
 
 public class ModBlock extends Block implements IModRegistrable {
 
+  public ModBlock(Properties properties) {
+    super(properties);
+  }
+
   public static Properties getDefaultProperties() {
     return getDefaultProperties(Material.ROCK).hardnessAndResistance(3);
   }
@@ -26,12 +30,6 @@ public class ModBlock extends Block implements IModRegistrable {
   public static Properties getDefaultProperties(Material material, MaterialColor materialColor) {
     return Properties.create(material, materialColor).hardnessAndResistance(3);
   }
-
-  public ModBlock(Properties properties) {
-    super(properties);
-  }
-
-
 
   @Override
   public void registerModel() {

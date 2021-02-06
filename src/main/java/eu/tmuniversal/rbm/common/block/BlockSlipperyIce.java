@@ -26,9 +26,9 @@ public class BlockSlipperyIce extends Block {
 
   public BlockSlipperyIce() {
     super(ModBlock.getDefaultProperties(Material.PACKED_ICE)
-    .slipperiness(1.0F) // TODO: find good number
-    .hardnessAndResistance(0.5F)
-    .sound(SoundType.GLASS));
+            .slipperiness(1.0F) // TODO: find good number
+            .hardnessAndResistance(0.5F)
+            .sound(SoundType.GLASS));
   }
 
   public BlockSlipperyIce(Properties properties) {

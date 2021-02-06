@@ -26,5 +26,6 @@ public class ModItems {
     return defaultBuilder().maxStackSize(1);
   }
 
-  public static void register() {}
+  public static void register() {
+  }
 }

@@ -18,6 +18,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 public class ClientProxy implements IProxy {
 
+  private static void registerEntityRenderers() {
+    RenderingRegistry.registerEntityRenderingHandler(ModEntities.SNOW_GIANT, (manager) -> new RendererSnowGiant(manager, ModEntities.SNOW_GIANT_SCALE));
+  }
+
   @Override
   public void registerHandlers() {
     IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -28,9 +32,5 @@ public class ClientProxy implements IProxy {
 
   private void clientSetup(FMLClientSetupEvent event) {
     registerEntityRenderers();
-  }
-
-  private static void registerEntityRenderers() {
-    RenderingRegistry.registerEntityRenderingHandler(ModEntities.SNOW_GIANT, (manager) -> new RendererSnowGiant(manager, ModEntities.SNOW_GIANT_SCALE));
   }
 }

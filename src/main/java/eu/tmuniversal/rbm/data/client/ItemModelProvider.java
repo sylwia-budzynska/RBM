@@ -25,6 +25,10 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
     super(generator, Reference.MOD_ID, existingFileHelper);
   }
 
+  protected static ResourceLocation prefixBlock(String name) {
+    return ResourceLocationHelper.prefix("block/" + name);
+  }
+
   @Override
   protected void registerModels() {
     register(LibBlockNames.TRAMPOLINE);
@@ -39,12 +43,8 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
     builder(itemGenerated, "dummy_item");
   }
 
-  protected ItemModelBuilder  register(String name) {
+  protected ItemModelBuilder register(String name) {
     return withExistingParent(name, prefixBlock(name));
-  }
-
-  protected static ResourceLocation prefixBlock(String name) {
-    return ResourceLocationHelper.prefix("block/" + name);
   }
 
   private ItemModelBuilder builder(ModelFile itemGenerated, String name) {

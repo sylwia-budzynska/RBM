@@ -14,13 +14,16 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 
 public interface IProxy {
-  default void registerHandlers() {}
+  default void registerHandlers() {
+  }
 
   default boolean isTheClientPlayer(LivingEntity entity) {
     return false;
   }
 
-  default PlayerEntity getClientPlayer() { return null; }
+  default PlayerEntity getClientPlayer() {
+    return null;
+  }
 
   default int getClientRenderDistance() {
     return 0;
