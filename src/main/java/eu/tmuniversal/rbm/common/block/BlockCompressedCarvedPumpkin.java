@@ -8,7 +8,7 @@
  */
 package eu.tmuniversal.rbm.common.block;
 
-import eu.tmuniversal.rbm.common.entity.EntitySnowGiant;
+import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -97,7 +97,7 @@ public class BlockCompressedCarvedPumpkin extends HorizontalBlock {
         .where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SNOW_BLOCK)))
         .where('S', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SMOOTH_STONE)))
         .where('W', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.OAK_LOG)))
-        .where('C', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(ModBlocks.COMPRESSED_CARVED_PUMPKIN.get())))
+        .where('C', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(RBMBlocks.compressed_carved_pumpkin.get())))
         .where('~', CachedBlockInfo.hasState(BlockMaterialMatcher.forMaterial(Material.AIR)))
         .build();
     }

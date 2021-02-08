@@ -8,8 +8,10 @@
  */
 package eu.tmuniversal.rbm.common.entity;
 
+import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
+import eu.tmuniversal.rbm.common.entity.projectile.EntityBigSnowball;
 import eu.tmuniversal.rbm.common.lib.LibEntityNames;
-import eu.tmuniversal.rbm.common.setup.Registration;
+import eu.tmuniversal.rbm.common.setup.Registry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -36,6 +38,6 @@ public class ModEntities {
   }
 
   private static <T extends EntityType<?>> RegistryObject<T> register(String name, Supplier<T> entitySupplier) {
-    return Registration.ENTITIES.register(name, entitySupplier);
+    return Registry.ENTITIES.register(name, entitySupplier);
   }
 }

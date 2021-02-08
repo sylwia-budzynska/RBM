@@ -6,8 +6,10 @@
  * RBM is Open Source and distributed under the
  * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-package eu.tmuniversal.rbm.common.entity;
+package eu.tmuniversal.rbm.common.entity.passive;
 
+import eu.tmuniversal.rbm.common.entity.projectile.EntityBigSnowball;
+import eu.tmuniversal.rbm.common.entity.ModEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
@@ -69,7 +71,6 @@ public class EntitySnowGiant extends SnowGolemEntity {
 
   @Override
   public void livingTick() {
-    super.livingTick();
     if (!this.world.isRemote) {
       if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this)) {
         return;

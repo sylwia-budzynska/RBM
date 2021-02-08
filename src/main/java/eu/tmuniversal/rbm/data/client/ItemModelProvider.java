@@ -37,6 +37,8 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
     register(LibBlockNames.SLIPPERY_ICE);
     register(LibBlockNames.LAUNCHPAD);
     register(LibBlockNames.COMPRESSED_CARVED_PUMPKIN);
+//    register(LibBlockNames.REAL_FAKE_DOOR);
+//    wallSideTall(LibBlockNames.REAL_FAKE_DOOR, mcLoc("block/oak_door"));
 
     ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
@@ -54,6 +56,6 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
   @Nonnull
   @Override
   public String getName() {
-    return "RBM Item Models";
+    return Reference.MOD_NAME_SHORT +" Item Models";
   }
 }

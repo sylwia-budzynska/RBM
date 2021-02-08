@@ -16,4 +16,5 @@ public class LibBlockNames {
   public static final String SLIPPERY_ICE = "slippery_ice";
   public static final String LAUNCHPAD = "launchpad";
   public static final String COMPRESSED_CARVED_PUMPKIN = "compressed_carved_pumpkin";
+  public static final String REAL_FAKE_DOOR = "real_fake_door";
 }

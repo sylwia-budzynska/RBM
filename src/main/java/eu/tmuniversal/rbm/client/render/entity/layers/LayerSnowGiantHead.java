@@ -11,7 +11,8 @@ package eu.tmuniversal.rbm.client.render.entity.layers;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import eu.tmuniversal.rbm.client.model.ModelSnowGiant;
 import eu.tmuniversal.rbm.common.block.ModBlocks;
-import eu.tmuniversal.rbm.common.entity.EntitySnowGiant;
+import eu.tmuniversal.rbm.common.block.RBMBlocks;
+import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
@@ -42,7 +43,7 @@ public class LayerSnowGiantHead extends LayerRenderer<EntitySnowGiant, ModelSnow
     matrixStackIn.translate(0.0D, -hat_shift, 0.0D);
     matrixStackIn.rotate(Vector3f.YP.rotationDegrees(180.0F));
     matrixStackIn.scale(0.625F * scale, -0.625F * scale, -0.625F * scale);
-    ItemStack itemstack = new ItemStack(ModBlocks.COMPRESSED_CARVED_PUMPKIN.get());
+    ItemStack itemstack = new ItemStack(RBMBlocks.compressed_carved_pumpkin.get());
     Minecraft.getInstance().getItemRenderer().renderItem(entitylivingbaseIn, itemstack, ItemCameraTransforms.TransformType.HEAD, false, matrixStackIn, bufferIn, entitylivingbaseIn.world, packedLightIn, LivingRenderer.getPackedOverlay(entitylivingbaseIn, 0.0F));
     matrixStackIn.pop();
   }

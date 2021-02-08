@@ -9,7 +9,7 @@
 package eu.tmuniversal.rbm.client.model;
 
 import com.google.common.collect.ImmutableList;
-import eu.tmuniversal.rbm.common.entity.EntitySnowGiant;
+import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;

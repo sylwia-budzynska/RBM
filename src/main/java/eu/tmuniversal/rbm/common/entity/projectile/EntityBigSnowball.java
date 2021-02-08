@@ -6,8 +6,9 @@
  * RBM is Open Source and distributed under the
  * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-package eu.tmuniversal.rbm.common.entity;
+package eu.tmuniversal.rbm.common.entity.projectile;
 
+import eu.tmuniversal.rbm.common.entity.ModEntities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

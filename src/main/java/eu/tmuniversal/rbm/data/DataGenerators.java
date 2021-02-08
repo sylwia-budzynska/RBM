@@ -11,6 +11,7 @@ package eu.tmuniversal.rbm.data;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.data.client.BlockStateProvider;
 import eu.tmuniversal.rbm.data.client.ItemModelProvider;
+import eu.tmuniversal.rbm.data.loot.BlockLootProvider;
 import eu.tmuniversal.rbm.data.recipes.RecipeProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;

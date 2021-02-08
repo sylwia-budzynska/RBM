@@ -34,6 +34,6 @@ public class ItemTagsProvider extends net.minecraft.data.ItemTagsProvider {
 
   @Override
   public String getName() {
-    return "RBM Item Tags";
+    return Reference.MOD_NAME_SHORT + " Item Tags";
   }
 }

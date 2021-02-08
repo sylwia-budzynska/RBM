@@ -11,10 +11,10 @@ package eu.tmuniversal.rbm.common;
 import eu.tmuniversal.rbm.client.proxy.ClientProxy;
 import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.core.IProxy;
-import eu.tmuniversal.rbm.common.entity.EntitySnowGiant;
+import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
 import eu.tmuniversal.rbm.common.lib.Reference;
-import eu.tmuniversal.rbm.common.setup.Registration;
+import eu.tmuniversal.rbm.common.setup.Registry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.util.DamageSource;
@@ -42,7 +42,7 @@ public class RBM {
   public RBM() {
     DistExecutor.callWhenOn(Dist.CLIENT, () -> () -> proxy = new ClientProxy());
     proxy.registerHandlers();
-    Registration.register();
+    Registry.register();
 
     // Register ourselves for server and other game events we are interested in
     MinecraftForge.EVENT_BUS.register(this);

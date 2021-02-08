@@ -20,19 +20,13 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class Registration {
+public class Registry {
   public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
-  public static final DeferredRegister<Block> OVERRIDE_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "minecraft");
-
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
-  public static final DeferredRegister<Item> OVERRIDE_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
-
   public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, Reference.MOD_ID);
 
   public static void register() {
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-    OVERRIDE_BLOCKS.register(modEventBus);
-    OVERRIDE_ITEMS.register(modEventBus);
 
     BLOCKS.register(modEventBus);
     ITEMS.register(modEventBus);

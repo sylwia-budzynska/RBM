@@ -9,6 +9,7 @@
 package eu.tmuniversal.rbm.data.recipes;
 
 import eu.tmuniversal.rbm.common.block.ModBlocks;
+import eu.tmuniversal.rbm.common.block.RBMBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
@@ -40,7 +41,7 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
   }
 
   public void registerMain(Consumer<IFinishedRecipe> consumer) {
-    ShapedRecipeBuilder.shapedRecipe(ModBlocks.TRAMPOLINE.get(), 4)
+    ShapedRecipeBuilder.shapedRecipe(RBMBlocks.trampoline.get(), 4)
       .key('B', Items.BAMBOO)
       .key('S', Items.SLIME_BLOCK)
       .key('d', Tags.Items.DYES_BLACK)
@@ -49,7 +50,7 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
       .patternLine("B B")
       .addCriterion("has_item", hasItem(Blocks.BAMBOO))
       .build(consumer);
-    ShapedRecipeBuilder.shapedRecipe(ModBlocks.SEMI_SOLID_AIR.get(), 8)
+    ShapedRecipeBuilder.shapedRecipe(RBMBlocks.semi_solid_air.get(), 8)
       .key('B', Items.GLASS_BOTTLE)
       .patternLine("BBB")
       .patternLine("B B")
@@ -57,17 +58,17 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
       .addCriterion("has_item", hasItem(Blocks.GLASS))
       .setGroup(prefixId("solid_air"))
       .build(consumer);
-    ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.SOLID_AIR.get())
-      .addIngredient(ModBlocks.SEMI_SOLID_AIR.get(), 2)
-      .addCriterion("has_item", hasItem(ModBlocks.SEMI_SOLID_AIR.get()))
+    ShapelessRecipeBuilder.shapelessRecipe(RBMBlocks.solid_air.get())
+      .addIngredient(RBMBlocks.semi_solid_air.get(), 2)
+      .addCriterion("has_item", hasItem(RBMBlocks.semi_solid_air.get()))
       .setGroup(prefixId("solid_air"))
       .build(consumer);
-    ShapelessRecipeBuilder.shapelessRecipe(ModBlocks.SEMI_SOLID_AIR.get(), 2)
-      .addIngredient(ModBlocks.SOLID_AIR.get())
-      .addCriterion("has_item", hasItem(ModBlocks.SOLID_AIR.get()))
+    ShapelessRecipeBuilder.shapelessRecipe(RBMBlocks.semi_solid_air.get(), 2)
+      .addIngredient(RBMBlocks.solid_air.get())
+      .addCriterion("has_item", hasItem(RBMBlocks.solid_air.get()))
       .setGroup(prefixId("solid_air"))
-      .build(consumer, recipeLocation(ModBlocks.SEMI_SOLID_AIR, "_from_solid_air"));
-    ShapedRecipeBuilder.shapedRecipe(ModBlocks.SLIPPERY_ICE.get(), 4)
+      .build(consumer, recipeLocation(RBMBlocks.solid_air, "_from_solid_air"));
+    ShapedRecipeBuilder.shapedRecipe(RBMBlocks.slippery_ice.get(), 4)
       .key('I', Items.ICE)
       .key('B', Items.BLUE_ICE)
       .patternLine(" I ")

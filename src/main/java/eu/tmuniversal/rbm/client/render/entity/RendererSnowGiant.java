@@ -11,7 +11,7 @@ package eu.tmuniversal.rbm.client.render.entity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import eu.tmuniversal.rbm.client.model.ModelSnowGiant;
 import eu.tmuniversal.rbm.client.render.entity.layers.LayerSnowGiantHead;
-import eu.tmuniversal.rbm.common.entity.EntitySnowGiant;
+import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

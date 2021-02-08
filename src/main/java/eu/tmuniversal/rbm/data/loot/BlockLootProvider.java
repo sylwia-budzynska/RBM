@@ -6,7 +6,7 @@
  * RBM is Open Source and distributed under the
  * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-package eu.tmuniversal.rbm.data;
+package eu.tmuniversal.rbm.data.loot;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

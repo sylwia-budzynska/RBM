@@ -8,57 +8,64 @@
  */
 package eu.tmuniversal.rbm.common.block;
 
-import eu.tmuniversal.rbm.common.item.ModItems;
+import eu.tmuniversal.rbm.common.item.ModItem;
 import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.Reference;
-import eu.tmuniversal.rbm.common.setup.Registration;
+import eu.tmuniversal.rbm.common.setup.Registry;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import shadows.placebo.util.PlaceboUtil;
 
 import java.util.function.Supplier;
 
 public class ModBlocks {
 
-  //#region  Block Registration
+  public static void register() {
+    registerBlocks();
+    if (FMLEnvironment.dist == Dist.CLIENT) {
+      registerRenderTypes();
+    }
+  }
 
-  public static final RegistryObject<Block> TRAMPOLINE = register(LibBlockNames.TRAMPOLINE, BlockTrampoline::new);
-
-  public static final RegistryObject<Block> SOLID_AIR = register(LibBlockNames.SOLID_AIR, BlockSolidAir::new, ModItems.defaultBuilder().rarity(Rarity.UNCOMMON));
-
-  public static final RegistryObject<Block> SEMI_SOLID_AIR = register(LibBlockNames.SEMI_SOLID_AIR, BlockSemiSolidAir::new, ModItems.defaultBuilder().rarity(Rarity.UNCOMMON));
-
-  public static final RegistryObject<Block> SLIPPERY_ICE = register(LibBlockNames.SLIPPERY_ICE, BlockSlipperyIce::new);
-
-  public static final RegistryObject<Block> LAUNCHPAD = register(LibBlockNames.LAUNCHPAD, BlockLaunchpad::new);
-
-  public static final RegistryObject<Block> COMPRESSED_CARVED_PUMPKIN = register(LibBlockNames.COMPRESSED_CARVED_PUMPKIN, BlockCompressedCarvedPumpkin::new, ModItems.defaultBuilder().rarity(Rarity.RARE));
-
+  public static void registerBlocks() {
+    RBMBlocks.trampoline = register(LibBlockNames.TRAMPOLINE, BlockTrampoline::new);
+    RBMBlocks.solid_air = register(LibBlockNames.SOLID_AIR, BlockSolidAir::new, ModItem.defaultBuilder().rarity(Rarity.UNCOMMON));
+    RBMBlocks.semi_solid_air = register(LibBlockNames.SEMI_SOLID_AIR, BlockSemiSolidAir::new, ModItem.defaultBuilder().rarity(Rarity.UNCOMMON));
+    RBMBlocks.slippery_ice = register(LibBlockNames.SLIPPERY_ICE, BlockSlipperyIce::new);
+    RBMBlocks.launchpad = register(LibBlockNames.LAUNCHPAD, BlockLaunchpad::new);
+    RBMBlocks.compressed_carved_pumpkin = register(LibBlockNames.COMPRESSED_CARVED_PUMPKIN, BlockCompressedCarvedPumpkin::new, ModItem.defaultBuilder().rarity(Rarity.RARE));
+    RBMBlocks.real_fake_door = register(LibBlockNames.REAL_FAKE_DOOR, BlockRealFakeDoor::new);
+  }
 
   public static void blockOverrides(RegistryEvent.Register<Block> event) {
     PlaceboUtil.registerOverride(new BlockOverrideBamboo(), Reference.MOD_ID);
   }
 
-  //#endregion  End block registration
-
-  public static void register() {
+  @OnlyIn(Dist.CLIENT)
+  public static void registerRenderTypes() {
+//    RenderTypeLookup.setRenderLayer(RBMBlocks.real_fake_door.get(), RenderType.getCutout());
   }
 
   private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> blockSupplier) {
-    return Registration.BLOCKS.register(name, blockSupplier);
+    return Registry.BLOCKS.register(name, blockSupplier);
   }
 
   private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier) {
-    return register(name, blockSupplier, ModItems.defaultBuilder());
+    return register(name, blockSupplier, ModItem.defaultBuilder());
   }
 
   private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, Item.Properties properties) {
     RegistryObject<T> returnValue = registerNoItem(name, blockSupplier);
-    Registration.ITEMS.register(name, () -> new BlockItem(returnValue.get(), properties));
+    Registry.ITEMS.register(name, () -> new BlockItem(returnValue.get(), properties));
     return returnValue;
   }
 }
