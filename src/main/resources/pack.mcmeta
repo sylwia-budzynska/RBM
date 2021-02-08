@@ -1,7 +1,6 @@
 {
     "pack": {
-        "description": "RBM Resources",
-        "pack_format": 6,
-        "_comment": "Texture etc. files for RBM"
+        "description": "Resources used by RBM",
+        "pack_format": 6
     }
 }
