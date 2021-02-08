@@ -11,6 +11,8 @@
   "block.rbm.slippery_ice.tooltip": "\u00A77Shown to be slightly more slippery than placebo",
   "block.rbm.compressed_carved_pumpkin": "Compressed Carved Pumpkin",
   "block.rbm.launchpad": "Launchpad",
+  "block.rbm.real_fake_door": "Real Fake Door",
+  "block.rbm.real_fake_door.tooltip": "Is this a marketing joke?",
   "entity.rbm.snow_giant": "Snow Giant",
   "entity.rbm.big_snowball": "Big Snowball"
 }

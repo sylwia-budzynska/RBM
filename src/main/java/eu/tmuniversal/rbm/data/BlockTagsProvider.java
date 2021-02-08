@@ -8,7 +8,7 @@
  */
 package eu.tmuniversal.rbm.data;
 
-import eu.tmuniversal.rbm.common.block.RBMBlocks;
+import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.lib.ModTags;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.data.DataGenerator;
@@ -23,15 +23,15 @@ public class BlockTagsProvider extends net.minecraft.data.BlockTagsProvider {
 
   @Override
   protected void registerTags() {
-    getOrCreateBuilder(ModTags.Blocks.TRAMPOLINE).add(RBMBlocks.trampoline.get());
-    getOrCreateBuilder(ModTags.Blocks.BLOCKS_SOLID_AIR).add(RBMBlocks.solid_air.get());
-    getOrCreateBuilder(ModTags.Blocks.BLOCKS_SOLID_AIR).add(RBMBlocks.semi_solid_air.get());
-    getOrCreateBuilder(Tags.Blocks.GLASS).add(RBMBlocks.solid_air.get());
-    getOrCreateBuilder(Tags.Blocks.GLASS).add(RBMBlocks.semi_solid_air.get());
+    getOrCreateBuilder(ModTags.Blocks.TRAMPOLINE).add(ModBlocks.TRAMPOLINE);
+    getOrCreateBuilder(ModTags.Blocks.BLOCKS_SOLID_AIR).add(ModBlocks.SOLID_AIR);
+    getOrCreateBuilder(ModTags.Blocks.BLOCKS_SOLID_AIR).add(ModBlocks.SEMI_SOLID_AIR);
+    getOrCreateBuilder(Tags.Blocks.GLASS).add(ModBlocks.SOLID_AIR);
+    getOrCreateBuilder(Tags.Blocks.GLASS).add(ModBlocks.SEMI_SOLID_AIR);
   }
 
   @Override
   public String getName() {
-    return "RBM Block Tags";
+    return Reference.MOD_NAME_SHORT + " Block Tags";
   }
 }

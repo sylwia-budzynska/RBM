@@ -9,19 +9,26 @@
 package eu.tmuniversal.rbm.common.item;
 
 import eu.tmuniversal.rbm.common.lib.LibItemNames;
-import eu.tmuniversal.rbm.common.setup.Registry;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems {
 
-  public static final RegistryObject<Item> DUMMY_ITEM = Registry.ITEMS.register(LibItemNames.DUMMY_ITEM, () -> new Item(ModItem.defaultBuilder()));
-//  public static final RegistryObject<Item> REAL_FAKE_DOOR = Registry.ITEMS.register(LibBlockNames.REAL_FAKE_DOOR, () -> new TallBlockItem(RBMBlocks.real_fake_door.get(), ModItem.defaultBuilder()));
+  public static final Item DUMMY_ITEM = new Item(ModItem.defaultBuilder());
 
   private static Item.Properties nonStackable() {
     return ModItem.defaultBuilder().maxStackSize(1);
   }
 
-  public static void register() {
+  public static void registerItems(RegistryEvent.Register<Item> event) {
+    register(DUMMY_ITEM, LibItemNames.DUMMY_ITEM);
   }
+
+  public static Item register(Item item, String name) {
+    item.setRegistryName(name);
+    ForgeRegistries.ITEMS.register(item);
+    return item;
+  }
+
 }

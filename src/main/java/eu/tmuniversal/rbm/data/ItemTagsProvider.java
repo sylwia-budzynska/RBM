@@ -28,7 +28,7 @@ public class ItemTagsProvider extends net.minecraft.data.ItemTagsProvider {
     copy(Tags.Blocks.ORES, Tags.Items.ORES);
 
 //    items
-    getOrCreateBuilder(ModTags.Items.INGOTS_DUMMY).add(ModItems.DUMMY_ITEM.get());
+    getOrCreateBuilder(ModTags.Items.INGOTS_DUMMY).add(ModItems.DUMMY_ITEM);
     getOrCreateBuilder(Tags.Items.INGOTS).addTag(ModTags.Items.INGOTS_DUMMY);
   }
 

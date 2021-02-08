@@ -8,7 +8,7 @@
  */
 package eu.tmuniversal.rbm.common.core;
 
-import eu.tmuniversal.rbm.common.block.RBMBlocks;
+import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -26,6 +26,6 @@ public class RBMCreativeTab extends ItemGroup {
   @Nonnull
   @Override
   public ItemStack createIcon() {
-    return new ItemStack(RBMBlocks.trampoline.get());
+    return new ItemStack(ModBlocks.TRAMPOLINE);
   }
 }

@@ -97,7 +97,7 @@ public class BlockCompressedCarvedPumpkin extends HorizontalBlock {
         .where('#', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SNOW_BLOCK)))
         .where('S', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.SMOOTH_STONE)))
         .where('W', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(Blocks.OAK_LOG)))
-        .where('C', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(RBMBlocks.compressed_carved_pumpkin.get())))
+        .where('C', CachedBlockInfo.hasState(BlockStateMatcher.forBlock(ModBlocks.COMPRESSED_CARVED_PUMPKIN)))
         .where('~', CachedBlockInfo.hasState(BlockMaterialMatcher.forMaterial(Material.AIR)))
         .build();
     }

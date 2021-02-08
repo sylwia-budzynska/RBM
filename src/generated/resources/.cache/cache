@@ -16,6 +16,7 @@ c1947bc5d62f30d449a9177225afe9adaa1d77bb assets/rbm/models/block/semi_solid_air.
 aa5fc3ffd2d7a2a1ca01af67fce26f5883dc22e5 assets/rbm/models/item/compressed_carved_pumpkin.json
 8bc4b18cfc1df8c20234b382f6f09ca41bc9d367 assets/rbm/models/item/dummy_item.json
 5fe575211af18fea2813c036546c464a56fcb127 assets/rbm/models/item/launchpad.json
+a44f100ea0ce1d164712794c6c7b656190b9a3f2 assets/rbm/models/item/real_fake_door.json
 1e090232d3c2479586f92d3ddee96f61daa64729 assets/rbm/models/item/semi_solid_air.json
 bc0908b29ec569e798d871fc828081fbc2f0f9f6 assets/rbm/models/item/slippery_ice.json
 82a19ddd76bd1160d1555c4763046072b01eeb92 assets/rbm/models/item/solid_air.json

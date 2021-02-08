@@ -9,21 +9,36 @@
 
 package eu.tmuniversal.rbm.common.block;
 
+import eu.tmuniversal.rbm.common.lib.LibBlockNames;
+import eu.tmuniversal.rbm.common.lib.TranslationKeyHelper;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DoorBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class BlockRealFakeDoor extends DoorBlock {
   public BlockRealFakeDoor() {
     super(ModBlock.getDefaultProperties(Material.WOOD, Blocks.OAK_DOOR.getMaterialColor()).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid());
+  }
+
+  @Override
+  public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    super.addInformation(stack, worldIn, tooltip, flagIn);
+    tooltip.add(TranslationKeyHelper.blockTooltip(LibBlockNames.REAL_FAKE_DOOR));
   }
 
   private int getOpenSound() {
@@ -31,8 +46,7 @@ public class BlockRealFakeDoor extends DoorBlock {
   }
 
   @Override
-  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-    worldIn.playEvent(player, this.getOpenSound(), pos, 0);
-    return ActionResultType.func_233537_a_(worldIn.isRemote);
+  public void openDoor(World worldIn, BlockState state, BlockPos pos, boolean open) {
+    worldIn.playEvent((PlayerEntity)null, this.getOpenSound(), pos, 0);
   }
 }

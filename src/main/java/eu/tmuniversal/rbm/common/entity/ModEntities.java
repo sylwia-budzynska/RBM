@@ -11,12 +11,10 @@ package eu.tmuniversal.rbm.common.entity;
 import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import eu.tmuniversal.rbm.common.entity.projectile.EntityBigSnowball;
 import eu.tmuniversal.rbm.common.lib.LibEntityNames;
-import eu.tmuniversal.rbm.common.setup.Registry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraftforge.fml.RegistryObject;
-
-import java.util.function.Supplier;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModEntities {
 
@@ -25,19 +23,21 @@ public class ModEntities {
     .size(0.7F * SNOW_GIANT_SCALE, 1.9F * SNOW_GIANT_SCALE)
     .setTrackingRange(Math.round(8 * (SNOW_GIANT_SCALE / 1.9F)))
     .build("");
-  public static final RegistryObject<EntityType<EntitySnowGiant>> SNOW_GIANT_REGISTRY_OBJECT = register(LibEntityNames.SNOW_GIANT, () -> SNOW_GIANT);
 
   public static final EntityType<EntityBigSnowball> BIG_SNOWBALL = EntityType.Builder.<EntityBigSnowball>create(EntityBigSnowball::new, EntityClassification.MISC)
     .size(0.25F * SNOW_GIANT_SCALE, 0.25F * SNOW_GIANT_SCALE)
     .setTrackingRange(4)
     .func_233608_b_(10)
     .build("");
-  public static final RegistryObject<EntityType<EntityBigSnowball>> BIG_SNOWBALL_REGISTRY_OBJECT = register(LibEntityNames.BIG_SNOWBALL, () -> BIG_SNOWBALL);
 
-  public static void register() {
+  public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
+    register(SNOW_GIANT, LibEntityNames.SNOW_GIANT);
+    register(BIG_SNOWBALL, LibEntityNames.BIG_SNOWBALL);
   }
 
-  private static <T extends EntityType<?>> RegistryObject<T> register(String name, Supplier<T> entitySupplier) {
-    return Registry.ENTITIES.register(name, entitySupplier);
+  private static EntityType<?> register(EntityType<?> entity, String name) {
+    entity.setRegistryName(name);
+    ForgeRegistries.ENTITIES.register(entity);
+    return entity;
   }
 }

@@ -105,6 +105,6 @@ public class BlockLootProvider implements IDataProvider {
   @Nonnull
   @Override
   public String getName() {
-    return "RBM block loot tables";
+    return Reference.MOD_NAME_SHORT + " block loot tables";
   }
 }

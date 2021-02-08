@@ -9,41 +9,50 @@
 package eu.tmuniversal.rbm.common.block;
 
 import eu.tmuniversal.rbm.common.item.ModItem;
+import eu.tmuniversal.rbm.common.item.ModItems;
 import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.Reference;
-import eu.tmuniversal.rbm.common.setup.Registry;
 import net.minecraft.block.Block;
+import net.minecraft.block.DoorBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
+import net.minecraft.item.TallBlockItem;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.registries.ForgeRegistries;
 import shadows.placebo.util.PlaceboUtil;
-
-import java.util.function.Supplier;
 
 public class ModBlocks {
 
-  public static void register() {
-    registerBlocks();
+  public static final Block TRAMPOLINE = new BlockTrampoline();
+  public static final Block SOLID_AIR = new BlockSolidAir();
+  public static final Block SEMI_SOLID_AIR = new BlockSemiSolidAir();
+  public static final Block SLIPPERY_ICE = new BlockSlipperyIce();
+  public static final Block LAUNCHPAD = new BlockLaunchpad();
+  public static final Block COMPRESSED_CARVED_PUMPKIN = new BlockCompressedCarvedPumpkin();
+  public static final DoorBlock REAL_FAKE_DOOR = new BlockRealFakeDoor();
+
+  public static void registerBlocks(RegistryEvent.Register<Block> event) {
+    register(TRAMPOLINE, LibBlockNames.TRAMPOLINE);
+    register(SOLID_AIR, LibBlockNames.SOLID_AIR, ModItem.defaultBuilder().rarity(Rarity.UNCOMMON));
+    register(SEMI_SOLID_AIR, LibBlockNames.SEMI_SOLID_AIR, ModItem.defaultBuilder().rarity(Rarity.UNCOMMON));
+    register(SLIPPERY_ICE, LibBlockNames.SLIPPERY_ICE);
+    register(LAUNCHPAD, LibBlockNames.LAUNCHPAD);
+    register(COMPRESSED_CARVED_PUMPKIN, LibBlockNames.COMPRESSED_CARVED_PUMPKIN, ModItem.defaultBuilder().rarity(Rarity.RARE));
+    register(REAL_FAKE_DOOR, LibBlockNames.REAL_FAKE_DOOR);
+
     if (FMLEnvironment.dist == Dist.CLIENT) {
       registerRenderTypes();
     }
   }
 
-  public static void registerBlocks() {
-    RBMBlocks.trampoline = register(LibBlockNames.TRAMPOLINE, BlockTrampoline::new);
-    RBMBlocks.solid_air = register(LibBlockNames.SOLID_AIR, BlockSolidAir::new, ModItem.defaultBuilder().rarity(Rarity.UNCOMMON));
-    RBMBlocks.semi_solid_air = register(LibBlockNames.SEMI_SOLID_AIR, BlockSemiSolidAir::new, ModItem.defaultBuilder().rarity(Rarity.UNCOMMON));
-    RBMBlocks.slippery_ice = register(LibBlockNames.SLIPPERY_ICE, BlockSlipperyIce::new);
-    RBMBlocks.launchpad = register(LibBlockNames.LAUNCHPAD, BlockLaunchpad::new);
-    RBMBlocks.compressed_carved_pumpkin = register(LibBlockNames.COMPRESSED_CARVED_PUMPKIN, BlockCompressedCarvedPumpkin::new, ModItem.defaultBuilder().rarity(Rarity.RARE));
-    RBMBlocks.real_fake_door = register(LibBlockNames.REAL_FAKE_DOOR, BlockRealFakeDoor::new);
+  public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
+//    ModItems.register(new BlockItem(ModBlocks.REAL_FAKE_DOOR, ModItem.defaultBuilder()), LibBlockNames.REAL_FAKE_DOOR);
   }
 
   public static void blockOverrides(RegistryEvent.Register<Block> event) {
@@ -52,20 +61,23 @@ public class ModBlocks {
 
   @OnlyIn(Dist.CLIENT)
   public static void registerRenderTypes() {
-//    RenderTypeLookup.setRenderLayer(RBMBlocks.real_fake_door.get(), RenderType.getCutout());
+    RenderTypeLookup.setRenderLayer(REAL_FAKE_DOOR, RenderType.getCutout());
   }
 
-  private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> blockSupplier) {
-    return Registry.BLOCKS.register(name, blockSupplier);
+  public static Block registerNoItem(Block block, String name) {
+    block.setRegistryName(name);
+    ForgeRegistries.BLOCKS.register(block);
+    return block;
   }
 
-  private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier) {
-    return register(name, blockSupplier, ModItem.defaultBuilder());
+  public static Block register(Block block, String name) {
+    return register(block, name, ModItem.defaultBuilder());
   }
 
-  private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, Item.Properties properties) {
-    RegistryObject<T> returnValue = registerNoItem(name, blockSupplier);
-    Registry.ITEMS.register(name, () -> new BlockItem(returnValue.get(), properties));
-    return returnValue;
+  public static Block register(Block block, String name, Item.Properties properties) {
+    BlockItem itemBlock = new BlockItem(block, properties);
+    itemBlock.setRegistryName(name);
+    ForgeRegistries.ITEMS.register(itemBlock);
+    return registerNoItem(block, name);
   }
 }

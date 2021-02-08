@@ -13,10 +13,12 @@ import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.core.IProxy;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
 import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
+import eu.tmuniversal.rbm.common.item.ModItems;
 import eu.tmuniversal.rbm.common.lib.Reference;
-import eu.tmuniversal.rbm.common.setup.Registry;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -42,14 +44,17 @@ public class RBM {
   public RBM() {
     DistExecutor.callWhenOn(Dist.CLIENT, () -> () -> proxy = new ClientProxy());
     proxy.registerHandlers();
-    Registry.register();
 
     // Register ourselves for server and other game events we are interested in
     MinecraftForge.EVENT_BUS.register(this);
 
     IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
     modBus.addListener(this::commonSetup);
+    modBus.addGenericListener(Block.class, ModBlocks::registerBlocks);
     modBus.addGenericListener(Block.class, ModBlocks::blockOverrides);
+    modBus.addGenericListener(Item.class, ModBlocks::registerItemBlocks);
+    modBus.addGenericListener(Item.class, ModItems::registerItems);
+    modBus.addGenericListener(EntityType.class, ModEntities::registerEntities);
   }
 
   public void commonSetup(FMLCommonSetupEvent event) {

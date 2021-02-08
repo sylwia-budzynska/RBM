@@ -11,6 +11,7 @@ package eu.tmuniversal.rbm.data.client;
 import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import eu.tmuniversal.rbm.common.lib.ResourceLocationHelper;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
@@ -37,8 +38,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
     register(LibBlockNames.SLIPPERY_ICE);
     register(LibBlockNames.LAUNCHPAD);
     register(LibBlockNames.COMPRESSED_CARVED_PUMPKIN);
-//    register(LibBlockNames.REAL_FAKE_DOOR);
-//    wallSideTall(LibBlockNames.REAL_FAKE_DOOR, mcLoc("block/oak_door"));
+    withExistingParent(LibBlockNames.REAL_FAKE_DOOR, mcLoc("item/oak_door"));
 
     ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
