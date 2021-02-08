@@ -8,22 +8,32 @@
  */
 package eu.tmuniversal.rbm.data.loot;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.advancements.criterion.EnchantmentPredicate;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.advancements.criterion.MinMaxBounds;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.block.Block;
+import net.minecraft.block.DoorBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DirectoryCache;
 import net.minecraft.data.IDataProvider;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Item;
 import net.minecraft.loot.*;
+import net.minecraft.loot.conditions.BlockStateProperty;
 import net.minecraft.loot.conditions.ILootCondition;
 import net.minecraft.loot.conditions.MatchTool;
 import net.minecraft.loot.conditions.SurvivesExplosion;
 import net.minecraft.loot.functions.CopyNbt;
+import net.minecraft.state.Property;
+import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.util.IItemProvider;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 
@@ -32,12 +42,15 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class BlockLootProvider implements IDataProvider {
   private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
   private static final ILootCondition.IBuilder SILK_TOUCH = MatchTool.builder(ItemPredicate.Builder.create()
     .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1))));
+  private static final Set<Item> IMMUNE_TO_EXPLOSIONS = Stream.<Block>of().map(IItemProvider::asItem).collect(ImmutableSet.toImmutableSet());
 
   private final DataGenerator generator;
   private final Map<Block, Function<Block, LootTable.Builder>> functionTable = new HashMap<>();
@@ -54,6 +67,8 @@ public class BlockLootProvider implements IDataProvider {
 //
 ////      generate similar
 //    }
+
+    functionTable.put(ModBlocks.REAL_FAKE_DOOR, BlockLootProvider::registerDoor);
   }
 
   private static Path getPath(Path root, ResourceLocation id) {
@@ -81,6 +96,19 @@ public class BlockLootProvider implements IDataProvider {
     LootPool.Builder pool = LootPool.builder().name("main").rolls(ConstantRange.of(1)).addEntry(entry)
       .acceptCondition(SurvivesExplosion.builder());
     return LootTable.builder().addLootPool(pool);
+  }
+
+  public static LootTable.Builder registerDoor(Block door) {
+    return droppingWhen(door, DoorBlock.HALF, DoubleBlockHalf.LOWER);
+  }
+
+  protected static <T> T withSurvivesExplosion(IItemProvider item, ILootConditionConsumer<T> condition) {
+    return (!IMMUNE_TO_EXPLOSIONS.contains(item.asItem()) ? condition.acceptCondition(SurvivesExplosion.builder()) : condition.cast());
+  }
+
+  protected static <T extends Comparable<T> & IStringSerializable> LootTable.Builder droppingWhen(Block block, Property<T> property, T value) {
+    return LootTable.builder()
+      .addLootPool(withSurvivesExplosion(block, LootPool.builder().rolls(ConstantRange.of(1)).addEntry(ItemLootEntry.builder(block).acceptCondition(BlockStateProperty.builder(block).fromProperties(StatePropertiesPredicate.Builder.newBuilder().withProp(property, value))))));
   }
 
   @Override

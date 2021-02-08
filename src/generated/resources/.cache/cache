@@ -33,7 +33,7 @@ dc49d88c7beefaeb7889cf7f98a522dd07a07ea7 data/rbm/advancements/recipes/rbm/semi_
 debc5e76f35f38b04be9fc21f76406c0836ac5f9 data/rbm/advancements/recipes/rbm/trampoline.json
 a03981c85195bb73936fd4e9c8b3009327081646 data/rbm/loot_tables/blocks/compressed_carved_pumpkin.json
 70e3772546c4833e749988092a0f09485399392f data/rbm/loot_tables/blocks/launchpad.json
-af4c0acbda04698c818d80b513e9b117d3f608b4 data/rbm/loot_tables/blocks/real_fake_door.json
+ca72716dd06cabb2d5de86525e9d5c4c5d8ecfb0 data/rbm/loot_tables/blocks/real_fake_door.json
 75ff7b5ed3d654ca88900323278318f9d823513e data/rbm/loot_tables/blocks/semi_solid_air.json
 2fdbbf1c7b8824033ea075087f8255b2e1ed9e08 data/rbm/loot_tables/blocks/slippery_ice.json
 b5a6f3c9e73777e4a533fe020cdf4a1c02be2904 data/rbm/loot_tables/blocks/solid_air.json

@@ -2,11 +2,19 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "main",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "rbm:real_fake_door",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
           "name": "rbm:real_fake_door"
         }
       ],
