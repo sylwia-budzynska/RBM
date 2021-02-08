@@ -11,15 +11,14 @@ package eu.tmuniversal.rbm.common.block;
 
 import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.TranslationKeyHelper;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -41,12 +40,26 @@ public class BlockRealFakeDoor extends DoorBlock {
     tooltip.add(TranslationKeyHelper.blockTooltip(LibBlockNames.REAL_FAKE_DOOR));
   }
 
-  private int getOpenSound() {
-    return this.material == Material.IRON ? 1005 : 1006;
+  @Override
+  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (this.material == Material.IRON) {
+      return ActionResultType.PASS;
+    } else {
+      worldIn.playEvent(player, this.getOpenSound(), pos, 0);
+      return ActionResultType.func_233537_a_(worldIn.isRemote);
+    }
   }
 
   @Override
-  public void openDoor(World worldIn, BlockState state, BlockPos pos, boolean open) {
-    worldIn.playEvent((PlayerEntity)null, this.getOpenSound(), pos, 0);
+  public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
+    boolean flag = worldIn.isBlockPowered(pos) || worldIn.isBlockPowered(pos.offset(state.get(HALF) == DoubleBlockHalf.LOWER ? Direction.UP : Direction.DOWN));
+    if (blockIn != this && flag != state.get(POWERED)) {
+      worldIn.playEvent(null, this.getOpenSound(), pos, 0);
+    }
+  }
+
+
+  private int getOpenSound() {
+    return this.material == Material.IRON ? 1005 : 1006;
   }
 }
