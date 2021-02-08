@@ -6,7 +6,6 @@
  * RBM is Open Source and distributed under the
  * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-
 package eu.tmuniversal.rbm.common.item;
 
 import eu.tmuniversal.rbm.common.core.RBMCreativeTab;
