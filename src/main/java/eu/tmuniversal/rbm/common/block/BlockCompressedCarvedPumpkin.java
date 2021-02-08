@@ -8,8 +8,8 @@
  */
 package eu.tmuniversal.rbm.common.block;
 
-import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
+import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;

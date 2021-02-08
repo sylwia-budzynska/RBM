@@ -8,12 +8,9 @@
  */
 package eu.tmuniversal.rbm.common.item;
 
-import eu.tmuniversal.rbm.common.block.RBMBlocks;
-import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.LibItemNames;
 import eu.tmuniversal.rbm.common.setup.Registry;
 import net.minecraft.item.Item;
-import net.minecraft.item.TallBlockItem;
 import net.minecraftforge.fml.RegistryObject;
 
 public class ModItems {

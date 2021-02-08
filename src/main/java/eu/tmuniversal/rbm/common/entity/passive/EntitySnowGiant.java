@@ -8,8 +8,8 @@
  */
 package eu.tmuniversal.rbm.common.entity.passive;
 
-import eu.tmuniversal.rbm.common.entity.projectile.EntityBigSnowball;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
+import eu.tmuniversal.rbm.common.entity.projectile.EntityBigSnowball;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;

@@ -8,7 +8,6 @@
  */
 package eu.tmuniversal.rbm.data.recipes;
 
-import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.block.RBMBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;

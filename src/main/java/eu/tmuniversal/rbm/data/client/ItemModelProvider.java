@@ -56,6 +56,6 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
   @Nonnull
   @Override
   public String getName() {
-    return Reference.MOD_NAME_SHORT +" Item Models";
+    return Reference.MOD_NAME_SHORT + " Item Models";
   }
 }

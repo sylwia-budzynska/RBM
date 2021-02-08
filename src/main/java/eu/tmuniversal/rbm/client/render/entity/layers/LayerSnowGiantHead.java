@@ -10,7 +10,6 @@ package eu.tmuniversal.rbm.client.render.entity.layers;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import eu.tmuniversal.rbm.client.model.ModelSnowGiant;
-import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.block.RBMBlocks;
 import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import net.minecraft.client.Minecraft;

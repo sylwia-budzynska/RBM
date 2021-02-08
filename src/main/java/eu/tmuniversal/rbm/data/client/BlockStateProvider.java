@@ -8,7 +8,6 @@
  */
 package eu.tmuniversal.rbm.data.client;
 
-import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.block.RBMBlocks;
 import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.Reference;
