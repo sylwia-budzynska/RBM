@@ -2,10 +2,7 @@
 
 RBM stands for _"Random Bulls**t Mod"_, adding things we find useful, neat, or just funny. Brought to you by [TMUniversal][TM] and RX_13.
 
-### This Mod is Word in Progress
-
-Development progress can be monitored on the [official GitHub repository](https://github.com/TMUniversal/RBM "RBM on GitHub")
-
+## This Mod is Word in Progress
 
 ### Dependencies
 
