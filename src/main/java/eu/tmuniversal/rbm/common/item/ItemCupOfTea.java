@@ -9,6 +9,7 @@
 package eu.tmuniversal.rbm.common.item;
 
 import eu.tmuniversal.rbm.common.core.ModStats;
+import eu.tmuniversal.rbm.common.food.ModFoods;
 import eu.tmuniversal.rbm.common.lib.LibItemNames;
 import eu.tmuniversal.rbm.common.lib.TranslationKeyHelper;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -16,11 +17,13 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.Food;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.UseAction;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DrinkHelper;
@@ -34,15 +37,16 @@ import java.util.Objects;
 
 public class ItemCupOfTea extends ModItem {
   public ItemCupOfTea() {
-    super(ModItem.defaultBuilder().rarity(Rarity.UNCOMMON));
+    super(ModItem.defaultBuilder().rarity(Rarity.UNCOMMON).food(ModFoods.TEA));
   }
 
   @Override
   public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entity) {
-    if (!worldIn.isRemote) {
-      entity.addPotionEffect(new EffectInstance(Objects.requireNonNull(Effect.get(1)), 60 * 20));
-      entity.addPotionEffect(new EffectInstance(Objects.requireNonNull(Effect.get(5)), 30 * 20));
+    if (!worldIn.isRemote && entity instanceof PlayerEntity) {
+      entity.addPotionEffect(new EffectInstance(Effects.SPEED, 60 * 20));
+      entity.addPotionEffect(new EffectInstance(Effects.STRENGTH, 30 * 20));
       entity.heal(entity.getMaxHealth() / 10.0F);
+      ((PlayerEntity) entity).getFoodStats().addStats(3, 0.6F);
     }
 
     if (entity instanceof ServerPlayerEntity) {
