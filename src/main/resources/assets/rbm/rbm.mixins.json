@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "package": "eu.tmuniversal.rbm.mixin",
+  "refmap": "rbm.refmap.json",
+  "mixins": [
+    "AccessorStats"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

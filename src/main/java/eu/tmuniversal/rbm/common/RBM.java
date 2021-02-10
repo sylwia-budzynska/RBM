@@ -10,7 +10,8 @@ package eu.tmuniversal.rbm.common;
 
 import eu.tmuniversal.rbm.client.proxy.ClientProxy;
 import eu.tmuniversal.rbm.common.block.ModBlocks;
-import eu.tmuniversal.rbm.common.core.IProxy;
+import eu.tmuniversal.rbm.common.core.ModStats;
+import eu.tmuniversal.rbm.common.core.proxy.IProxy;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
 import eu.tmuniversal.rbm.common.entity.passive.EntitySnowGiant;
 import eu.tmuniversal.rbm.common.item.ModItems;
@@ -60,6 +61,8 @@ public class RBM {
   public void commonSetup(FMLCommonSetupEvent event) {
     event.enqueueWork(() -> {
       GlobalEntityTypeAttributes.put(ModEntities.SNOW_GIANT, EntitySnowGiant.setAttributes());
+
+      ModStats.init();
     });
   }
 
