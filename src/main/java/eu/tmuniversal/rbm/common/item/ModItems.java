@@ -15,11 +15,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems {
 
-  public static final Item DUMMY_ITEM = new Item(ModItem.defaultBuilder());
   public static final Item CUP_OF_TEA = new ItemCupOfTea();
 
   public static void registerItems(RegistryEvent.Register<Item> event) {
-    register(DUMMY_ITEM, LibItemNames.DUMMY_ITEM);
     register(CUP_OF_TEA, LibItemNames.CUP_OF_TEA);
   }
 

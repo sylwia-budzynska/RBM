@@ -49,10 +49,8 @@ public class ModTags {
 
   public static final class Items {
     //    BlockItems
-    public static final ITag.INamedTag<Item> ORES_DUMMY_BLOCK = forge("ores/dummy");
 
     //    Actual items
-    public static final ITag.INamedTag<Item> INGOTS_DUMMY = forge("ingots/dummy");
 
     private static ITag.INamedTag<Item> mod(String name) {
       return ItemTags.makeWrapperTag(prefix(name).toString());
