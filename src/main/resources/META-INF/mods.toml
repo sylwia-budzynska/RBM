@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[35,)"
 license = "GPL-3.0"
-issueTrackerURL="https://github.com/TMUniversal/RBM/issues"
+issueTrackerURL = "https://github.com/TMUniversal/RBM/issues"
 displayURL = "https://github.com/TMUniversal/RBM"
 #updateJSONURL=""
 logoFile = "logo.png"
@@ -19,29 +19,29 @@ We were bored...
 '''
 
 [[dependencies.rbm]]
-  modId = "forge"
-  mandatory = true
-  versionRange = "[35,)"
-  ordering = "NONE"
-  side = "BOTH"
+modId = "forge"
+mandatory = true
+versionRange = "[35,)"
+ordering = "NONE"
+side = "BOTH"
 
 [[dependencies.rbm]]
-  modId = "minecraft"
-  mandatory = true
-  versionRange = "[1.16.4,1.17)"
-  ordering = "NONE"
-  side = "BOTH"
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.16.4,1.17)"
+ordering = "NONE"
+side = "BOTH"
 
 [[dependencies.rbm]]
-  modId = "placebo"
-  mandatory = true
-  versionRange = "[4.4.1,)"
-  ordering = "NONE"
-  side = "BOTH"
+modId = "placebo"
+mandatory = true
+versionRange = "[4.4.1,)"
+ordering = "NONE"
+side = "BOTH"
 
 [[dependencies.rbm]]
-  modId = "jei"
-  mandatory = false
-  versionRange = "[7.6.0,)"
-  ordering = "NONE"
-  side = "BOTH"
+modId = "jei"
+mandatory = false
+versionRange = "[7.6.0,)"
+ordering = "NONE"
+side = "BOTH"
