@@ -20,6 +20,10 @@ build
 # logs
 *.log
 
+# cache
+*.cache
+*cache
+
 # other
 .vscode
 eclipse
