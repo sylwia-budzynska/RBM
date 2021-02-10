@@ -9,7 +9,7 @@
 package eu.tmuniversal.rbm.client.proxy;
 
 import eu.tmuniversal.rbm.client.render.entity.RendererSnowGiant;
-import eu.tmuniversal.rbm.common.core.IProxy;
+import eu.tmuniversal.rbm.common.core.proxy.IProxy;
 import eu.tmuniversal.rbm.common.entity.ModEntities;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraftforge.eventbus.api.IEventBus;

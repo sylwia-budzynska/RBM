@@ -6,7 +6,7 @@
  * RBM is Open Source and distributed under the
  * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-package eu.tmuniversal.rbm.common.core;
+package eu.tmuniversal.rbm.common.core.proxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.LivingEntity;

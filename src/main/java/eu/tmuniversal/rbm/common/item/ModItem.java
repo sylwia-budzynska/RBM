@@ -11,8 +11,19 @@ package eu.tmuniversal.rbm.common.item;
 import eu.tmuniversal.rbm.common.core.RBMCreativeTab;
 import net.minecraft.item.Item;
 
-public class ModItem {
+public abstract class ModItem extends Item {
   public static Item.Properties defaultBuilder() {
     return new Item.Properties().group(RBMCreativeTab.INSTANCE);
+  }
+  public static Item.Properties nonStackable() {
+    return ModItem.defaultBuilder().maxStackSize(1);
+  }
+
+  public ModItem() {
+    super(defaultBuilder());
+  }
+
+  public ModItem(Properties properties) {
+    super(properties);
   }
 }
