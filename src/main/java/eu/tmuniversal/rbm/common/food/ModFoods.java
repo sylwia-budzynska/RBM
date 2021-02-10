@@ -9,8 +9,6 @@
 package eu.tmuniversal.rbm.common.food;
 
 import net.minecraft.item.Food;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 
 public class ModFoods {
   public static final Food TEA = new Food.Builder().hunger(3).saturation(0.6F).setAlwaysEdible().build();
