@@ -49,7 +49,7 @@ public class ItemCupOfTea extends ModItem {
       ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entity;
       CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
       serverplayerentity.addStat(Stats.ITEM_USED.get(this));
-      serverplayerentity.addStat(ModStats.CUPS_OF_TEA_CONSUMED, 1);
+      serverplayerentity.addStat(ModStats.CUPS_OF_TEA_CONSUMED);
     }
 
     if (entity instanceof PlayerEntity && !((PlayerEntity) entity).abilities.isCreativeMode) {
