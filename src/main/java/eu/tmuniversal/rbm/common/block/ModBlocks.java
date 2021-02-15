@@ -12,6 +12,7 @@ import eu.tmuniversal.rbm.common.item.ModItem;
 import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.block.Block;
+import net.minecraft.block.CropsBlock;
 import net.minecraft.block.DoorBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -34,6 +35,7 @@ public class ModBlocks {
   public static final Block LAUNCHPAD = new BlockLaunchpad();
   public static final Block COMPRESSED_CARVED_PUMPKIN = new BlockCompressedCarvedPumpkin();
   public static final DoorBlock REAL_FAKE_DOOR = new BlockRealFakeDoor();
+  public static final CropsBlock TEA_CROP = new BlockTeaCrop();
 
   public static void registerBlocks(RegistryEvent.Register<Block> event) {
     register(TRAMPOLINE, LibBlockNames.TRAMPOLINE);
@@ -43,6 +45,7 @@ public class ModBlocks {
     register(LAUNCHPAD, LibBlockNames.LAUNCHPAD);
     register(COMPRESSED_CARVED_PUMPKIN, LibBlockNames.COMPRESSED_CARVED_PUMPKIN, ModItem.defaultBuilder().rarity(Rarity.RARE));
     register(REAL_FAKE_DOOR, LibBlockNames.REAL_FAKE_DOOR);
+    registerNoItem(TEA_CROP, LibBlockNames.TEA_CROP);
 
     if (FMLEnvironment.dist == Dist.CLIENT) {
       registerRenderTypes();
@@ -60,6 +63,7 @@ public class ModBlocks {
   @OnlyIn(Dist.CLIENT)
   public static void registerRenderTypes() {
     RenderTypeLookup.setRenderLayer(REAL_FAKE_DOOR, RenderType.getCutout());
+    RenderTypeLookup.setRenderLayer(TEA_CROP, RenderType.getCutout());
   }
 
   public static Block registerNoItem(Block block, String name) {

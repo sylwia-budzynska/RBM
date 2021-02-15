@@ -34,6 +34,7 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
     simpleBlock(ModBlocks.SEMI_SOLID_AIR);
     simpleBlock(ModBlocks.SLIPPERY_ICE);
     simpleBlock(ModBlocks.LAUNCHPAD);
+    simpleBlock(ModBlocks.TEA_CROP);
     doorBlock(ModBlocks.REAL_FAKE_DOOR, mcLoc("block/oak_door_bottom"), mcLoc("block/oak_door_top"));
     horizontalBlock(ModBlocks.COMPRESSED_CARVED_PUMPKIN, model(LibBlockNames.COMPRESSED_CARVED_PUMPKIN));
   }

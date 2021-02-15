@@ -9,6 +9,7 @@
 package eu.tmuniversal.rbm.data;
 
 import eu.tmuniversal.rbm.common.lib.Reference;
+import eu.tmuniversal.rbm.data.client.BlockModelProvider;
 import eu.tmuniversal.rbm.data.client.BlockStateProvider;
 import eu.tmuniversal.rbm.data.client.ItemModelProvider;
 import eu.tmuniversal.rbm.data.loot.BlockLootProvider;
@@ -40,6 +41,7 @@ public final class DataGenerators {
 
     if (event.includeClient()) {
       gen.addProvider(new BlockStateProvider(gen, existingFileHelper));
+      gen.addProvider(new BlockModelProvider(gen, existingFileHelper));
       gen.addProvider(new ItemModelProvider(gen, existingFileHelper));
     }
   }

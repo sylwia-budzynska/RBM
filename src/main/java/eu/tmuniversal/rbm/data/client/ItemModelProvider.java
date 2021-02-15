@@ -42,6 +42,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
     ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
     builder(itemGenerated, "cup_of_tea");
+    builder(itemGenerated, "tea_seeds");
   }
 
   protected ItemModelBuilder register(String name) {

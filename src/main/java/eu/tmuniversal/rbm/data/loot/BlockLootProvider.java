@@ -12,12 +12,14 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import eu.tmuniversal.rbm.common.block.ModBlocks;
+import eu.tmuniversal.rbm.common.item.ModItems;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.advancements.criterion.EnchantmentPredicate;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.advancements.criterion.MinMaxBounds;
 import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.block.Block;
+import net.minecraft.block.CropsBlock;
 import net.minecraft.block.DoorBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DirectoryCache;
@@ -29,7 +31,9 @@ import net.minecraft.loot.conditions.BlockStateProperty;
 import net.minecraft.loot.conditions.ILootCondition;
 import net.minecraft.loot.conditions.MatchTool;
 import net.minecraft.loot.conditions.SurvivesExplosion;
+import net.minecraft.loot.functions.ApplyBonus;
 import net.minecraft.loot.functions.CopyNbt;
+import net.minecraft.loot.functions.ExplosionDecay;
 import net.minecraft.state.Property;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.IItemProvider;
@@ -55,6 +59,8 @@ public class BlockLootProvider implements IDataProvider {
   private final DataGenerator generator;
   private final Map<Block, Function<Block, LootTable.Builder>> functionTable = new HashMap<>();
 
+  private final ILootCondition.IBuilder teaLootCondition = BlockStateProperty.builder(ModBlocks.TEA_CROP).fromProperties(StatePropertiesPredicate.Builder.newBuilder().withIntProp(CropsBlock.AGE, 7));
+
   public BlockLootProvider(DataGenerator generator) {
     this.generator = generator;
 
@@ -69,6 +75,7 @@ public class BlockLootProvider implements IDataProvider {
 //    }
 
     functionTable.put(ModBlocks.REAL_FAKE_DOOR, BlockLootProvider::registerDoor);
+    functionTable.put(ModBlocks.TEA_CROP, block -> registerCrop(block, ModItems.TEA_SEEDS, teaLootCondition));
   }
 
   private static Path getPath(Path root, ResourceLocation id) {
@@ -98,12 +105,24 @@ public class BlockLootProvider implements IDataProvider {
     return LootTable.builder().addLootPool(pool);
   }
 
+  public static LootTable.Builder registerCrop(Block block, Item item, ILootCondition.IBuilder lootCondition) {
+    return droppingAndBonusWhen(block, block.asItem(), item, lootCondition);
+  }
+
   public static LootTable.Builder registerDoor(Block door) {
     return droppingWhen(door, DoorBlock.HALF, DoubleBlockHalf.LOWER);
   }
 
   protected static <T> T withSurvivesExplosion(IItemProvider item, ILootConditionConsumer<T> condition) {
     return (!IMMUNE_TO_EXPLOSIONS.contains(item.asItem()) ? condition.acceptCondition(SurvivesExplosion.builder()) : condition.cast());
+  }
+
+  protected static <T> T withExplosionDecay(IItemProvider item, ILootFunctionConsumer<T> function) {
+    return (!IMMUNE_TO_EXPLOSIONS.contains(item.asItem()) ? function.acceptFunction(ExplosionDecay.builder()) : function.cast());
+  }
+
+  protected static LootTable.Builder droppingAndBonusWhen(Block block, Item itemConditional, Item withBonus, ILootCondition.IBuilder conditionBuilder) {
+    return withExplosionDecay(block, LootTable.builder().addLootPool(LootPool.builder().addEntry(ItemLootEntry.builder(itemConditional).acceptCondition(conditionBuilder).alternatively(ItemLootEntry.builder(withBonus)))).addLootPool(LootPool.builder().acceptCondition(conditionBuilder).addEntry(ItemLootEntry.builder(withBonus).acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.5714286F, 3)))));
   }
 
   protected static <T extends Comparable<T> & IStringSerializable> LootTable.Builder droppingWhen(Block block, Property<T> property, T value) {

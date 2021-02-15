@@ -12,6 +12,7 @@ import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.lib.ModTags;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -28,6 +29,7 @@ public class BlockTagsProvider extends net.minecraft.data.BlockTagsProvider {
     getOrCreateBuilder(ModTags.Blocks.BLOCKS_SOLID_AIR).add(ModBlocks.SEMI_SOLID_AIR);
     getOrCreateBuilder(Tags.Blocks.GLASS).add(ModBlocks.SOLID_AIR);
     getOrCreateBuilder(Tags.Blocks.GLASS).add(ModBlocks.SEMI_SOLID_AIR);
+    getOrCreateBuilder(BlockTags.CROPS).add(ModBlocks.TEA_CROP);
   }
 
   @Override

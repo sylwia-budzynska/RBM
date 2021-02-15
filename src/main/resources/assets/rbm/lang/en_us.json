@@ -3,6 +3,9 @@
   "item.rbm.dummy_item": "Dummy Item",
   "item.rbm.cup_of_tea": "Cup of Tea",
   "item.rbm.cup_of_tea.tooltip": "\u00A77More than just hot leaf juice!",
+  "item.rbm.tea_seeds": "Tea Seeds",
+  "item.rbm.tea_seeds.tooltip": "\u00A77They will make delicious tea, if handled properly.",
+  "item.rbm.real_fake_door.tooltip": "\u00A77Is this a marketing joke?",
   "block.rbm.trampoline": "Trampoline",
   "block.rbm.trampoline.tooltip": "\u00A77So bouncy!",
   "block.rbm.solid_air": "Solid Air",
@@ -14,7 +17,7 @@
   "block.rbm.compressed_carved_pumpkin": "Compressed Carved Pumpkin",
   "block.rbm.launchpad": "Launchpad",
   "block.rbm.real_fake_door": "Real Fake Door",
-  "block.rbm.real_fake_door.tooltip": "\u00A77Is this a marketing joke?",
+  "block.rbm.tea_crop": "Tea",
   "entity.rbm.snow_giant": "Snow Giant",
   "entity.rbm.big_snowball": "Big Snowball",
   "stat.rbm.cups_of_tea_consumed": "Cups of Tea consumed"
