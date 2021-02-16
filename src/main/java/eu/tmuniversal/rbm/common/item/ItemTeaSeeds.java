@@ -10,7 +10,7 @@ package eu.tmuniversal.rbm.common.item;
 
 import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.lib.LibItemNames;
-import eu.tmuniversal.rbm.common.lib.TranslationKeyHelper;
+import eu.tmuniversal.rbm.common.lib.TooltipHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.ItemStack;
@@ -28,6 +28,6 @@ public class ItemTeaSeeds extends BlockNamedItem {
   @Override
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     super.addInformation(stack, worldIn, tooltip, flagIn);
-    tooltip.add(TranslationKeyHelper.itemTooltip(LibItemNames.TEA_SEEDS));
+    tooltip.add(TooltipHelper.itemTooltip(LibItemNames.TEA_SEEDS));
   }
 }

@@ -8,7 +8,6 @@
  */
 package eu.tmuniversal.rbm.data.client;
 
-import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -22,7 +21,7 @@ public class BlockModelProvider extends net.minecraftforge.client.model.generato
 
   @Override
   protected void registerModels() {
-    super.crop(LibBlockNames.TEA_CROP, modLoc(LibBlockNames.TEA_CROP));
+//    super.cross(LibBlockNames.TEA_CROP, modLoc(LibBlockNames.TEA_CROP));
   }
 
   @Nonnull

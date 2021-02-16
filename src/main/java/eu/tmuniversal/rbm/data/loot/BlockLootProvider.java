@@ -75,7 +75,7 @@ public class BlockLootProvider implements IDataProvider {
 //    }
 
     functionTable.put(ModBlocks.REAL_FAKE_DOOR, BlockLootProvider::registerDoor);
-    functionTable.put(ModBlocks.TEA_CROP, block -> registerCrop(block, ModItems.TEA_SEEDS, teaLootCondition));
+    functionTable.put(ModBlocks.TEA_CROP, block -> registerCrop(block, ModItems.TEA_LEAF, teaLootCondition));
   }
 
   private static Path getPath(Path root, ResourceLocation id) {

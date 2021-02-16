@@ -17,7 +17,7 @@ import net.minecraft.world.IBlockReader;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static eu.tmuniversal.rbm.common.lib.TranslationKeyHelper.blockTooltip;
+import static eu.tmuniversal.rbm.common.lib.TooltipHelper.blockTooltip;
 
 public class BlockSemiSolidAir extends BlockSolidAirBase {
 

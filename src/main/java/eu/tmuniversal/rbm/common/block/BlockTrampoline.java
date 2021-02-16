@@ -38,7 +38,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static eu.tmuniversal.rbm.common.lib.TranslationKeyHelper.blockTooltip;
+import static eu.tmuniversal.rbm.common.lib.TooltipHelper.blockTooltip;
 
 public class BlockTrampoline extends SlimeBlock implements IWaterLoggable {
 

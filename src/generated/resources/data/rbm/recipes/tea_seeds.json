@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "rbm:tea",
+  "ingredients": [
+    {
+      "item": "rbm:tea_leaf"
+    }
+  ],
+  "result": {
+    "item": "rbm:tea_seeds"
+  }
+}

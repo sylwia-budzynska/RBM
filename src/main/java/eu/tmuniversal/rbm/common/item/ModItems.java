@@ -18,10 +18,12 @@ public class ModItems {
 
   public static final Item CUP_OF_TEA = new ItemCupOfTea();
   public static final BlockNamedItem TEA_SEEDS = new ItemTeaSeeds();
+  public static final Item TEA_LEAF = new ItemTeaLeaf();
 
   public static void registerItems(RegistryEvent.Register<Item> event) {
     register(CUP_OF_TEA, LibItemNames.CUP_OF_TEA);
     register(TEA_SEEDS, LibItemNames.TEA_SEEDS);
+    register(TEA_LEAF, LibItemNames.TEA_LEAF);
   }
 
   public static Item register(Item item, String name) {

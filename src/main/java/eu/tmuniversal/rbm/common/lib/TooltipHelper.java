@@ -10,7 +10,7 @@ package eu.tmuniversal.rbm.common.lib;
 
 import net.minecraft.util.text.TranslationTextComponent;
 
-public class TranslationKeyHelper {
+public class TooltipHelper {
 
   public static final String TOOLTIP_EXTENSION = "tooltip";
   public static final String LINE_EXTENSION = "line";

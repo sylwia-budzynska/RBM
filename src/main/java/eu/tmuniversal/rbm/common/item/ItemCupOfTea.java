@@ -11,7 +11,7 @@ package eu.tmuniversal.rbm.common.item;
 import eu.tmuniversal.rbm.common.core.ModStats;
 import eu.tmuniversal.rbm.common.food.ModFoods;
 import eu.tmuniversal.rbm.common.lib.LibItemNames;
-import eu.tmuniversal.rbm.common.lib.TranslationKeyHelper;
+import eu.tmuniversal.rbm.common.lib.TooltipHelper;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
@@ -78,6 +78,6 @@ public class ItemCupOfTea extends ModItem {
   @Override
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     super.addInformation(stack, worldIn, tooltip, flagIn);
-    tooltip.add(TranslationKeyHelper.itemTooltip(LibItemNames.CUP_OF_TEA));
+    tooltip.add(TooltipHelper.itemTooltip(LibItemNames.CUP_OF_TEA));
   }
 }

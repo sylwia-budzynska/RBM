@@ -22,7 +22,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "rbm:tea_seeds"
+              "name": "rbm:tea_leaf"
             }
           ]
         }
@@ -44,7 +44,7 @@
               }
             }
           ],
-          "name": "rbm:tea_seeds"
+          "name": "rbm:tea_leaf"
         }
       ],
       "conditions": [

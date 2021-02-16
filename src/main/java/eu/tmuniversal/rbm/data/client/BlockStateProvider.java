@@ -11,8 +11,10 @@ package eu.tmuniversal.rbm.data.client;
 import eu.tmuniversal.rbm.common.block.ModBlocks;
 import eu.tmuniversal.rbm.common.lib.LibBlockNames;
 import eu.tmuniversal.rbm.common.lib.Reference;
+import net.minecraft.block.CropsBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -34,16 +36,20 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
     simpleBlock(ModBlocks.SEMI_SOLID_AIR);
     simpleBlock(ModBlocks.SLIPPERY_ICE);
     simpleBlock(ModBlocks.LAUNCHPAD);
-    simpleBlock(ModBlocks.TEA_CROP);
     doorBlock(ModBlocks.REAL_FAKE_DOOR, mcLoc("block/oak_door_bottom"), mcLoc("block/oak_door_top"));
     horizontalBlock(ModBlocks.COMPRESSED_CARVED_PUMPKIN, model(LibBlockNames.COMPRESSED_CARVED_PUMPKIN));
+    registerCrop(ModBlocks.TEA_CROP, LibBlockNames.TEA_CROP);
+  }
+
+  private void registerCrop(CropsBlock block, String name) {
+    getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(model(name + "_" + state.get(CropsBlock.AGE))).build());
   }
 
   private ModelFile model(String name) {
-    return model(name, modLoc("block/" + name));
+    return model(modLoc("block/" + name));
   }
 
-  private ModelFile model(String name, ResourceLocation location) {
+  private ModelFile model(ResourceLocation location) {
     return new ModelFile.ExistingModelFile(location, this.exFileHelper);
   }
 

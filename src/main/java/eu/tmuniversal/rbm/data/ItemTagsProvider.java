@@ -8,9 +8,11 @@
  */
 package eu.tmuniversal.rbm.data;
 
+import eu.tmuniversal.rbm.common.item.ModItems;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ItemTagsProvider extends net.minecraft.data.ItemTagsProvider {
@@ -24,6 +26,7 @@ public class ItemTagsProvider extends net.minecraft.data.ItemTagsProvider {
 //    copy(Tags.Blocks.ORES, Tags.Items.ORES);
 
 //    items
+    getOrCreateBuilder(Tags.Items.SEEDS).add(ModItems.TEA_SEEDS);
   }
 
   @Override

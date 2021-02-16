@@ -9,6 +9,7 @@
 package eu.tmuniversal.rbm.data.recipes;
 
 import eu.tmuniversal.rbm.common.block.ModBlocks;
+import eu.tmuniversal.rbm.common.item.ModItems;
 import eu.tmuniversal.rbm.common.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -74,6 +75,11 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider {
       .patternLine("IBI")
       .patternLine(" I ")
       .addCriterion("has_item", hasItem(Blocks.ICE))
+      .build(consumer);
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.TEA_SEEDS, 1)
+      .addIngredient(ModItems.TEA_LEAF)
+      .addCriterion("has_item", hasItem(ModItems.TEA_LEAF))
+      .setGroup(prefixId("tea"))
       .build(consumer);
   }
 

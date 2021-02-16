@@ -11,4 +11,5 @@ package eu.tmuniversal.rbm.common.lib;
 public class LibItemNames {
   public static final String CUP_OF_TEA = "cup_of_tea";
   public static final String TEA_SEEDS = "tea_seeds";
+  public static final String TEA_LEAF = "tea_leaf";
 }

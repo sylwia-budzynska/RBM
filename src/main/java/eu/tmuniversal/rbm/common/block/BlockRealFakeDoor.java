@@ -9,7 +9,7 @@
 package eu.tmuniversal.rbm.common.block;
 
 import eu.tmuniversal.rbm.common.lib.LibBlockNames;
-import eu.tmuniversal.rbm.common.lib.TranslationKeyHelper;
+import eu.tmuniversal.rbm.common.lib.TooltipHelper;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
@@ -36,7 +36,7 @@ public class BlockRealFakeDoor extends DoorBlock {
   @Override
   public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     super.addInformation(stack, worldIn, tooltip, flagIn);
-    tooltip.add(TranslationKeyHelper.blockTooltip(LibBlockNames.REAL_FAKE_DOOR));
+    tooltip.add(TooltipHelper.blockTooltip(LibBlockNames.REAL_FAKE_DOOR));
   }
 
   @Override

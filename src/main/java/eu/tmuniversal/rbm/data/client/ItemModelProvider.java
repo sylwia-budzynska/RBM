@@ -43,6 +43,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
 
     builder(itemGenerated, "cup_of_tea");
     builder(itemGenerated, "tea_seeds");
+    builder(itemGenerated, "tea_leaf");
   }
 
   protected ItemModelBuilder register(String name) {
