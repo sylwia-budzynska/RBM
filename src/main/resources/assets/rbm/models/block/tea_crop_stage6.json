@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "rbm:block/tea_crop_0"
+  }
+}
