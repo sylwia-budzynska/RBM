@@ -23,6 +23,7 @@ build
 # cache
 *.cache
 *cache
+!src/generated/resources/.cache/cache
 
 # other
 .vscode
