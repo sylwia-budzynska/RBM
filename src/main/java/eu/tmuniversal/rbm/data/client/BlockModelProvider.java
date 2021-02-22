@@ -21,7 +21,7 @@ public class BlockModelProvider extends net.minecraftforge.client.model.generato
 
   @Override
   protected void registerModels() {
-//    super.cross(LibBlockNames.TEA_CROP, modLoc(LibBlockNames.TEA_CROP));
+
   }
 
   @Nonnull
