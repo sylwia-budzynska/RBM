@@ -13,7 +13,7 @@ pipeline {
                 sh './gradlew clean --no-daemon'
             }
         }
-        stage('Build and Deploy Release') {
+        stage('Build Release') {
             when {
                 tag 'release-*'
             }
@@ -21,17 +21,17 @@ pipeline {
                 RELEASE_MODE = '1'
             }
             steps {
-                sh './gradlew build publish --no-daemon'
+                sh './gradlew build --no-daemon'
             }
         }
-        stage('Build and Deploy Snapshot') {
+        stage('Build Snapshot') {
             when {
                 not {
                     tag 'release-*'
                 }
             }
             steps {
-                sh './gradlew build publish --no-daemon'
+                sh './gradlew build --no-daemon'
             }
         }
     }
