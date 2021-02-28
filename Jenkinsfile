@@ -36,6 +36,7 @@ pipeline {
     stage('Collect Fingerprints') {
       steps {
         fingerprint 'rbm-1.16.4-*.jar'
+        fingerprint 'build/libs/rbm-1.16.4*.jar'
       }
     }
 
