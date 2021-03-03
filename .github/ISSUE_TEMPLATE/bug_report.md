@@ -11,7 +11,6 @@ assignees: ''
 
 Forge version:  
 RBM version:
-OS: [e.g. Windows 10]
 
 # Further Information
 
