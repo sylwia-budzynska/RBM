@@ -1,10 +1,12 @@
 /*
  * This class is distributed as part of the RBM Mod.
- * Get the Source Code in github:
+ * Get the Source Code on github:
  * https://github.com/TMUniversal/RBM
  *
  * RBM is Open Source and distributed under the
- * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
+ * Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+ * International Public License (CC BY-NC-SA 4.0):
+ * https://creativecommons.org/licenses/by-nc-sa/4.0/
  */
 package eu.tmuniversal.rbm.common;
 
@@ -33,7 +35,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(Reference.MOD_ID)
 public class RBM {
   // Directly reference a log4j logger.
