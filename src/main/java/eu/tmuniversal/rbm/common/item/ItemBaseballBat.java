@@ -89,6 +89,7 @@ public class ItemBaseballBat extends ModItem {
     return this.attackDamage;
   }
 
+  @Override
   public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot) {
     return equipmentSlot == EquipmentSlotType.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(equipmentSlot);
   }
