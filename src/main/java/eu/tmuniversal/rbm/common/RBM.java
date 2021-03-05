@@ -76,6 +76,15 @@ public class RBM {
     }
   }
 
+//  @SubscribeEvent
+//  public void lootLoad(LootTableLoadEvent event) {
+//    if (event.getName().toString().equals("minecraft/chests/simple_dungeon")) {
+//      event.getTable().addPool(LootPool.builder().name("rbm_dungeon_loot")
+//        .rolls(ConstantRange.of(1))
+//        .addEntry(ItemLootEntry.builder(() -> ModItems.BASEBALL_BAT))
+//        .build());
+//    }
+//  }
 /*
     private void setup(final FMLCommonSetupEvent event)
     {
