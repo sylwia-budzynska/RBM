@@ -1,10 +1,12 @@
 /*
  * This class is distributed as part of the RBM Mod.
- * Get the Source Code in github:
+ * Get the Source Code on github:
  * https://github.com/TMUniversal/RBM
  *
  * RBM is Open Source and distributed under the
- * GPL-3.0 License: https://www.gnu.org/licenses/gpl-3.0.en.html
+ * Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+ * International Public License (CC BY-NC-SA 4.0):
+ * https://creativecommons.org/licenses/by-nc-sa/4.0/
  */
 package eu.tmuniversal.rbm.common.block;
 

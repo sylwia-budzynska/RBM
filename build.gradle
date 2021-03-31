@@ -6,6 +6,11 @@ buildscript {
     }
     jcenter()
     mavenCentral()
+    maven {
+      name "Sponge"
+      url "https://repo.spongepowered.org/repository/maven-public/"
+      content { includeGroup "org.spongepowered" }
+    }
     maven { url = 'https://dist.creeper.host/Sponge/maven' }
   }
   dependencies {
@@ -15,7 +20,7 @@ buildscript {
 }
 
 plugins {
-  id "com.diffplug.spotless" version "5.7.0"
+  id "com.diffplug.spotless" version "5.11.1"
 }
 
 apply plugin: 'net.minecraftforge.gradle'

@@ -7,6 +7,8 @@
   "item.rbm.tea_leaf": "Tea Leaf",
   "item.rbm.tea_leaf.tooltip": "\u00A77They will make delicious tea, if handled properly.",
   "item.rbm.real_fake_door.tooltip": "\u00A77Is this a marketing joke?",
+  "item.rbm.baseball_bat": "Baseball Bat",
+  "item.rbm.baseball_bat.tooltip": "\u00A77Bonk!",
   "block.rbm.trampoline": "Trampoline",
   "block.rbm.trampoline.tooltip": "\u00A77So bouncy!",
   "block.rbm.solid_air": "Solid Air",
