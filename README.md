@@ -19,7 +19,9 @@ of [Random Things](https://www.curseforge.com/minecraft/mc-mods/random-things "R
 
 ### License
 
-RBM is licensed under the terms of the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License][CC-BY-NC-SA] (CC BY-NC-SA 4.0)
+RBM is licensed under the terms of
+the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License][CC-BY-NC-SA] (CC BY-NC-SA
+4.0)
 
 ---
 
@@ -28,5 +30,7 @@ Downloads [![Downloads](http://cf.way2muchnoise.eu/author/TMUniversal.svg)](http
 
 
 [TM]: https://github.com/sponsors/TMUniversal "TMUniversal on GitHub"
+
 [RX]: https://github.com/RX137 "RX_13 on GitHub"
+
 [CC-BY-NC-SA]: http://creativecommons.org/licenses/by-nc-sa/4.0/ "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License"
