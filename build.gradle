@@ -6,6 +6,11 @@ buildscript {
     }
     jcenter()
     mavenCentral()
+    maven {
+      name "Sponge"
+      url "https://repo.spongepowered.org/repository/maven-public/"
+      content { includeGroup "org.spongepowered" }
+    }
     maven { url = 'https://dist.creeper.host/Sponge/maven' }
   }
   dependencies {
